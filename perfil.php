@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <?php
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  
-                  }
-                  else{
-                   header("Location: ./");
-                   exit();
-                 }
-                 ?>
+  session_start();
+   if (isset($_SESSION['usuario'])) 
+   {
+    
+    }
+    else{
+     header("Location: ./");
+     exit();
+   }
+?>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="utf-8">
