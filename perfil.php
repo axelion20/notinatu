@@ -447,92 +447,98 @@
               <h3 class="box-title">Acontecimiento importante</h3>
             
             </div>
+              <form method='post' enctype='multipart/form-data' action="control/insertar.php">
+
             <div class="box-body">
-              <form action="control/insertar.php" method="post">
+              <input type="hidden" name="usuario" <?php echo "value='$_SESSION[usuario]'"?>>
+
                 <div class="form-group">
-                  <input type="text" class="form-control" name="subject" placeholder="Titulo del problema">
+                  <input type="file" name="foto" class="form-control input-field" required>
                 </div>
                 <div>
-                  <textarea class="textarea" placeholder="Escribe el problema"
+                <textarea required name="txttexto" placeholder="Escribe el problema"
                             style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                 </div>
-              </form>
+
             </div>
             <div class="box-footer clearfix">
-              <button type="button" class="pull-right btn btn-default" id="sendEmail">Publicar
+              <button type="submit" name="publicar" class="pull-right btn btn-default">Publicar
                 <i class="fa fa-arrow-circle-right"></i></button>
             </div>
+            </form>
           </div>
 
-          <div class="box box-widget">
-            <div class="box-header with-border">
-              <div class="user-block">
-                <img class="img-circle" src="dist/img/user1-128x128.jpg" alt="User Image">
-                <span class="username"><a href="#">Axel Sifuentes</a></span>
-                <span class="description">Compartido el 23-11-2017 en  Chorrillos, Lima, Perú</span>
+          <?php 
+          include('control/conexion.php');
+          $sql=mysql_query("
+            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto 
+            FROM content c 
+            join user u on u.IdUser=c.iduser
+            WHERE u.Name='Axel'
+            order by c.idcontent desc
+            ",$con) or die('Problema 1');
+
+            while ($row=mysql_fetch_array($sql)) 
+            {
+               echo "
+               <div class='box box-widget'>
+            <div class='box-header with-border'>
+              <div class='user-block'>
+                <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
+                <span class='username'><a href='#''>
+                $row[Name] $row[LastName]</a></span>
+                <span class='description'>Compartido el 23-11-2017 en  Chorrillos, Lima, Perú</span>
               </div>
-              <!-- /.user-block -->
-              <div class="box-tools">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+           
+              <div class='box-tools'>
+                <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                <button type='button' class='btn btn-box-tool' data-widget='remove'><i class='fa fa-times'></i></button>
               </div>
-              <!-- /.box-tools -->
+           
             </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <img class="img-responsive pad" src="https://desinformemonos.org/wp-content/uploads/2017/09/desastres2.jpg" alt="Photo">
-
-              <p>Desastre natural</p>
-              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-              <span class="pull-right text-muted">127 likes - 3 comments</span>
+         
+            <div class='box-body'>
+              <img style='width:100%' class='img-responsive pad' 
+              src='foto/$row[foto]' alt='Photo'>
+              <p>$row[message]</p>
+              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-share'></i> Share</button>
+              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-thumbs-o-up'></i> Like</button>
+              <span class='pull-right text-muted'>127 likes - 3 comments</span>
             </div>
-            <!-- /.box-body -->
-            <div class="box-footer box-comments">
-              <div class="box-comment">
-                <!-- User image -->
-                <img class="img-circle img-sm" src="dist/img/user3-128x128.jpg" alt="User Image">
+      
+            <div class='box-footer box-comments'>
+              <div class='box-comment'>
+            
+                <img class='img-circle img-sm' src='dist/img/user3-128x128.jpg' alt='User Image'>
 
-                <div class="comment-text">
-                      <span class="username">
+                <div class='comment-text'>
+                      <span class='username'>
                         Maria Gonzales
-                        <span class="text-muted pull-right">8:03 PM Today</span>
-                      </span><!-- /.username -->
+                        <span class='text-muted pull-right'>8:03 PM Today</span>
+                      </span>
                   It is a long established fact that a reader will be distracted
                   by the readable content of a page when looking at its layout.
                 </div>
-                <!-- /.comment-text -->
-              </div>
-              <!-- /.box-comment -->
-              <div class="box-comment">
-                <!-- User image -->
-                <img class="img-circle img-sm" src="dist/img/user4-128x128.jpg" alt="User Image">
 
-                <div class="comment-text">
-                      <span class="username">
-                        Luna Stark
-                        <span class="text-muted pull-right">8:03 PM Today</span>
-                      </span><!-- /.username -->
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </div>
-                <!-- /.comment-text -->
               </div>
-              <!-- /.box-comment -->
+
             </div>
-            <!-- /.box-footer -->
-            <div class="box-footer">
-              <form action="#" method="post">
-                <img class="img-responsive img-circle img-sm" src="dist/img/user4-128x128.jpg" alt="Alt Text">
-                <!-- .img-push is used to add margin to elements next to floating images -->
-                <div class="img-push">
-                  <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+
+            <div class='box-footer'>
+              <form action='#' method='post'>
+                <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
+   
+                <div class='img-push'>
+                  <input type='text' class='form-control input-sm' placeholder='Press enter to post comment'>
                 </div>
               </form>
             </div>
-            <!-- /.box-footer -->
+         
           </div>
+               "
+             ;}
+          ?>
         </section>
 
         <section class="col-lg-3 connectedSortable">
@@ -540,7 +546,7 @@
             <div class="inner">
               <h3>44</h3>
 
-              <p>User Registrations</p>
+              <p>Familires agregados</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -558,7 +564,27 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              The body of the box
+              <form action="addfamiliar.php" method="post" name="addcontac">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-envelope"></i>
+                  </div>
+                  <input type="email" class="form-control" required>
+                </div>
+                <button style="width: 100%" type="submit" name="addtel" class="btn btn-primary">Agregar contacto email</button>
+                </form>
+
+                <form action="addfamiliar.php" method="post" name="addcontac">
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-phone"></i>
+                  </div>
+                  <input type="number" class="form-control" max="999999999" required>
+                </div>
+                <button style="width: 100%" type="submit" name="addtel" class="btn btn-primary">Agregar contacto email</button>
+                </form>
+
+
             </div>
             <!-- /.box-body -->
           </div>
