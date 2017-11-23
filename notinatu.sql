@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2017 a las 00:20:08
+-- Tiempo de generación: 23-11-2017 a las 23:55:44
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -25,45 +25,126 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla `action`
 --
 
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL,
-  `pass` varchar(25) DEFAULT NULL,
-  `telefono` int(11) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
-  `email` varchar(35) NOT NULL,
-  `foto` varchar(200) NOT NULL,
-  `id_tipo_usuario` int(11) NOT NULL
+CREATE TABLE `action` (
+  `idaction` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `ip` varchar(20) NOT NULL,
+  `typeaction` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `contact`
+--
+
+CREATE TABLE `contact` (
+  `IdContact` int(11) NOT NULL,
+  `IdUser` int(11) NOT NULL,
+  `Item` int(11) NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `LastName` varchar(45) NOT NULL,
+  `Phone1` varchar(45) NOT NULL,
+  `Phone2` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `content`
+--
+
+CREATE TABLE `content` (
+  `idcontent` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `item` int(11) NOT NULL,
+  `foto` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `video` varchar(100) NOT NULL,
+  `message` varchar(800) NOT NULL,
+  `location` varchar(100) NOT NULL,
+  `idaccion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user`
+--
+
+CREATE TABLE `user` (
+  `IdUser` int(11) NOT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Phone` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  `Name` varchar(45) NOT NULL,
+  `LastName` varchar(45) NOT NULL,
+  `IdAccion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `pass`, `telefono`, `nombres`, `email`, `foto`, `id_tipo_usuario`) VALUES
-(16, '123', 123, 'axel', 'ax@gmail.com', '', 1);
+INSERT INTO `user` (`IdUser`, `Email`, `Phone`, `Password`, `Name`, `LastName`, `IdAccion`) VALUES
+(1, 'a@gmail.com', '123', '123', 'Axel', 'Sifuentes', 1);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla `action`
 --
-ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `action`
+  ADD PRIMARY KEY (`idaction`);
+
+--
+-- Indices de la tabla `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`IdContact`);
+
+--
+-- Indices de la tabla `content`
+--
+ALTER TABLE `content`
+  ADD PRIMARY KEY (`idcontent`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`IdUser`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla `action`
 --
-ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;COMMIT;
+ALTER TABLE `action`
+  MODIFY `idaction` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `IdContact` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `content`
+--
+ALTER TABLE `content`
+  MODIFY `idcontent` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `user`
+--
+ALTER TABLE `user`
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
