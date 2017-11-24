@@ -17,6 +17,7 @@ if ($row = mysql_fetch_array($sql))
 		{
 		session_start();
 		$_SESSION['usuario'] = $row['Name'];
+		$_SESSION['id'] = $row['IdUser'];
 		header("Location: ../perfil.php");
 		}else
 		{
@@ -25,6 +26,7 @@ if ($row = mysql_fetch_array($sql))
 					{
 					session_start();
 					$_SESSION['usuario'] = $row['Name'];
+					$_SESSION['id'] = $row['IdUser'];
 					header("Location: ../perfil.php");
 					}else
 						{

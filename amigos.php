@@ -57,167 +57,136 @@
       <!-- Main row -->
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
-        <section class="col-lg-4 connectedSortable">
-          <div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-envelope"></i>
 
-              <h3 class="box-title">Acontecimiento importante</h3>
-            
-            </div>
-            <form method='post' enctype='multipart/form-data' action="control/insertar.php">
-              <div class="box-body">
-                <input type="hidden" name="usuario" <?php echo "value='$_SESSION[usuario]'"?>>
-                  <div class="form-group">
-                    <input type="file" name="foto" class="form-control btn btn-primary" required>
-                  </div>
-                <div>
-                <textarea  required name="txttexto" placeholder="Escribe el problema"
-                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; 
-                border: 1px solid #dddddd; padding: 10px;"></textarea>
+        <section class="col-lg-8 col-md-6 connectedSortable ui-sortable">
+         <section class="content">
+
+      <!-- row -->
+      <div class="row">
+        <div class="col-md-12">
+          <!-- The time line -->
+          <ul class="timeline">
+            <!-- timeline time label -->
+            <li class="time-label">
+                  <span class="bg-red">
+                    10 Feb. 2014
+                  </span>
+            </li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <li>
+              <i class="fa fa-envelope bg-blue"></i>
+
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+
+                <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+
+                <div class="timeline-body">
+                  Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                  weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                  jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                  quora plaxo ideeli hulu weebly balihoo...
                 </div>
+                <div class="timeline-footer">
+                  <a class="btn btn-primary btn-xs">Read more</a>
+                  <a class="btn btn-danger btn-xs">Delete</a>
+                </div>
+              </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+              <i class="fa fa-user bg-aqua"></i>
 
-            </div>
-            <div class="box-footer clearfix">
-              <button type="submit" name="publicar" class="pull-right btn btn-default">Publicar
-                <i class="fa fa-arrow-circle-right"></i></button>
-            </div>
-            </form>
-          </div>
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
 
+                <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
+              </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+              <i class="fa fa-comments bg-yellow"></i>
 
-           <div class="box box-solid">
-            <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
-              <h3 class="box-title">Eventos próximos</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                </ol>
-                <div class="carousel-inner">
-                  <div class="item">
-                    <img src="https://www.mef.gob.pe/contenidos/prensa/images/ntdp_26072016.jpg" alt="First slide">
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
 
-                    <div class="carousel-caption">
-                      1era imagen
-                    </div>
-                  </div>
-                  <div class="item active">
-                    <img src="https://image.slidesharecdn.com/ivanvsquezrivasplata-131114141944-phpapp01/95/utilizacin-de-herramientas-esri-en-la-gestin-de-riesgo-de-desastres-visor-geogrfico-sinpad-ivan-vsquez-rivasplata-instituto-nacional-de-defensa-civil-per-2-638.jpg?cb=1384439642" alt="Second slide">
+                <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
 
-                    <div class="carousel-caption">
-                      2da imagen
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="https://image.slidesharecdn.com/elcambioclimticoylosdesastrespeligrosgeolgicosenelsurdelper-120525160607-phpapp02/95/el-cambio-climtico-y-los-desastres-peligros-geolgicos-en-el-sur-del-per-1-728.jpg?cb=1337962830" alt="Third slide">
+                <div class="timeline-body">
+                  Take me to your leader!
+                  Switzerland is small and neutral!
+                  We are more like Germany, ambitious and misunderstood!
+                </div>
+                <div class="timeline-footer">
+                  <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                </div>
+              </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline time label -->
+            <li class="time-label">
+                  <span class="bg-green">
+                    3 Jan. 2014
+                  </span>
+            </li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <li>
+              <i class="fa fa-camera bg-purple"></i>
 
-                    <div class="carousel-caption">
-                      3era imagen
-                    </div>
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+
+                <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+
+                <div class="timeline-body">
+                  <img src="http://placehold.it/150x100" alt="..." class="margin">
+                  <img src="http://placehold.it/150x100" alt="..." class="margin">
+                  <img src="http://placehold.it/150x100" alt="..." class="margin">
+                  <img src="http://placehold.it/150x100" alt="..." class="margin">
+                </div>
+              </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+              <i class="fa fa-video-camera bg-maroon"></i>
+
+              <div class="timeline-item">
+                <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
+
+                <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
+
+                <div class="timeline-body">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/tMWkeBIohBs" frameborder="0" allowfullscreen=""></iframe>
                   </div>
                 </div>
-                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                  <span class="fa fa-angle-left"></span>
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                  <span class="fa fa-angle-right"></span>
-                </a>
-              </div>
-            </div>
-            <!-- /.box-body -->
-          </div>
-
-          
-        </section>
-
-        <section class="col-lg-4 col-md-6 connectedSortable ui-sortable">
-          <?php 
-          include('control/conexion.php');
-          $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
-            FROM content c 
-            join user u on u.IdUser=c.iduser
-            WHERE u.Name='$_SESSION[usuario]'
-            order by c.idcontent desc
-            ",$con) or die('Problema 1');
-
-            while ($row=mysql_fetch_array($sql)) 
-            {
-               echo "
-               <div class='box box-widget'>
-            <div class='box-header with-border'>
-              <div class='user-block'>
-                <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
-                <span class='username'><a href='#''>
-                $row[Name] $row[LastName]</a></span>
-                <span class='description'>Compartido 
-                el ".substr($row['date'], 8,2)." 
-                del ".substr($row['date'], 5,2)." 
-                a las ".substr($row['date'], 10,6)."
-                en Lima, Perú</span>
-              </div>
-           
-              <div class='box-tools'>
-                <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
-                </button>
-                <a type='button' class='btn btn-box-tool' href='control/borrarpubli.php?id=$row[idcontent]'>
-                  <i class='fa fa-times'></i>
-                </a>
-              </div>
-           
-            </div>
-         
-            <div class='box-body'>
-              <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]' alt='Photo'>
-              <p>$row[message]</p>
-              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
-              <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
-            </div>
-      
-            <div class='box-footer box-comments'>
-              <div class='box-comment'>
-            
-                <img class='img-circle img-sm' src='dist/img/user3-128x128.jpg' alt='User Image'>
-
-                <div class='comment-text'>
-                      <span class='username'>
-                        Maria Gonzales
-                        <span class='text-muted pull-right'>8:03 PM Today</span>
-                      </span>
-                Es un hecho establecido desde hace tiempo que un lector se distraerá con el contenido legible de una página al mirar su diseño.
-
+                <div class="timeline-footer">
+                  <a href="#" class="btn btn-xs bg-maroon">See comments</a>
                 </div>
-
               </div>
+            </li>
+            <!-- END timeline item -->
+            <li>
+              <i class="fa fa-clock-o bg-gray"></i>
+            </li>
+          </ul>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
 
-            </div>
-
-            <div class='box-footer'>
-              <form action='#' method='post'>
-                <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
-   
-                <div class='img-push'>
-                  <input type='text' class='form-control input-sm' placeholder='Press enter to post comment'>
-                </div>
-              </form>
-            </div>
-         
-          </div>
-               "
-             ;}
-          ?>
+    </section>
           
         </section>
 
          <section class="col-lg-4 connectedSortable">
 
-          <div class="info-box bg-blue" >
+          <div class="info-box bg-yellow">
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
             <div class="info-box-content">
@@ -234,7 +203,7 @@
             <!-- /.info-box-content -->
           </div>
 
-          <div class="small-box bg-blue">
+          <div class="small-box bg-yellow">
             <div class="inner">
               <h3>44</h3>
 
@@ -246,7 +215,7 @@
 
             <div class="box box-default collapsed-box small-box-footer">
             <div class="box-header with-border">
-              <h3 class="box-title" style="color: white">Añadir+</h3>
+              <h3 class="box-title">Añadir+</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -280,7 +249,7 @@
                <li>
                       <img src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                       <a class='users-list-name' href='user.php?id=$row[IdUser]'> $row[Name]  $row[LastName]</a>
-                      <a href='control/addfriend.php?friend=$row[IdUser]&me=$_SESSION[id]'>
+                      <a href='insertar.php'>
                        <button type='button' class='btn btn-block btn-primary btn-sm'>Añadir</button>
                       </a>
                      
@@ -295,7 +264,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">Ver más</a>
+                  <a href="javascript:void(0)" class="uppercase">Ver todos los usuarios</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
@@ -329,7 +298,7 @@
                   <h3 class="box-title">Amigos</h3>
 
                   <div class="box-tools pull-right">
-                    <span class="label label-danger">Mis amigos</span>
+                    <span class="label label-danger">8 Nuevos amigos</span>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                   </div>
@@ -340,10 +309,10 @@
                     <?php 
                     include('control/conexion.php');
                     $sql=mysql_query("
-                      SELECT f.idfriend,u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
+                      SELECT u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
                       FROM friend f
                       JOIN user u on u.IdUser=f.iduser2
-                      WHERE f.iduser1=$_SESSION[id]
+                      WHERE f.iduser2='5'
                       order by IdUser desc
                       ",$con) or die('Problema 1');
 
@@ -353,7 +322,7 @@
                          <li>
                                 <img src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                                 <a class='users-list-name' href='user.php?id=$row[IdUser]'> $row[Name]  $row[LastName]</a>
-                                <a href='control/borrarfriend.php?id=$row[idfriend]'>
+                                <a href='insertar.php'>
                                  <button type='button' class='btn btn-block btn-danger btn-sm'>Eliminar</button>
                                 </a>
                                
@@ -368,7 +337,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="amigos.php" class="uppercase">Ver todos los usuarios</a>
+                  <a href="javascript:void(0)" class="uppercase">Ver todos los usuarios</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
