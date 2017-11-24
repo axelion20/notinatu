@@ -1,3 +1,13 @@
+<?php
+  session_start();
+ if (isset($_SESSION['usuario'])) 
+ {
+  
+  }
+  else{
+
+  }
+ ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -41,17 +51,98 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <?php
-        include('control/conexion.php');
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  include('headeru.php');
-                  }
-                  else{
-                   include('header.php');
-                 }
-                 ?>
+  <header class="main-header">
+    <nav class="navbar navbar-static-top" style="margin: 0px">
+      <div class="container">
+        <div class="navbar-header" style="margin-top: -10px">
+          <a href="#" class="navbar-brand">
+            <img width="40px" class="img-circle " src="https://icon-icons.com/icons2/1310/PNG/512/recycling_86328.png" alt="User Image">
+          </a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Inicio </a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Buscar...">
+            </div>
+          </form>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+             <i class="fa fa-user"></i>
+              <span class="hidden-xs">Iniciar sesión</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header" style="height: 100%">
+               <form action="control/validar.php" method="post">
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" placeholder="Email o Télefono" name="txtusuario">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" name="txtpass" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">
+              <div class="checkbox icheck">
+                <label>
+                 <a href="#" style="color: white">Olvidé mi password</a>
+                </label>
+              </div>
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Ingresar</button>
+            </div><!-- /.col -->
+            <div class="col-lg-12">
+              <a class="btn btn-block btn-social btn-facebook">
+                <i class="fa fa-facebook"></i> Ingresar con Facebook
+              </a>
+              <a class="btn btn-block btn-social btn-google">
+                <i class="fa fa-google-plus"></i> Ingresar con Google
+              </a>
+            </div>
+
+            
+          </div>
+        </form>
+              </li>
+
+            </ul>
+          </li>
+
+          </ul>
+        </div>
+        <!-- /.navbar-custom-menu -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
 
 
 
@@ -66,8 +157,12 @@
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
            <section class="col-lg-4 col-md-6 connectedSortable">
+            
+         
+        </section>
 
-            <div class="nav-tabs-custom">
+           <div class="col-lg-4">
+          <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
               <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="true">NUEVO!</a></li>
               <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">REGISTRO DE USUARIO</a></li>
@@ -199,8 +294,7 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger" name="registrar">Registrar
-                      </button>
+                      <button type="submit" class="btn btn-danger" name="registrar">Registrar</button>
                     </div>
                   </div>
                 </form>
@@ -209,11 +303,6 @@
             </div>
             <!-- /.tab-content -->
           </div>
-         
-        </section>
-
-           <div class="col-lg-4">
-          
           <?php 
           include('control/conexion.php');
           $sql=mysql_query("
@@ -348,93 +437,7 @@
             </div>
             <!-- /.box-body -->
           </div>
-          <div class="box box-primary direct-chat direct-chat-primary">
-            <div class="box-header with-border">
-              <h3 class="box-title">Direct Chat</h3>
-
-              <div class="box-tools pull-right">
-                <span data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title="3 New Messages">3</span>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Contacts">
-                  <i class="fa fa-comments"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- Conversations are loaded here -->
-              <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                    <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    Is this template really for free? That's unbelievable!
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                    <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                  </div>
-                  <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    You better believe it!
-                  </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-              </div>
-              <!--/.direct-chat-messages-->
-
-              <!-- Contacts are loaded here -->
-              <div class="direct-chat-contacts">
-                <ul class="contacts-list">
-                  <li>
-                    <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Image">
-
-                      <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date pull-right">2/28/2015</small>
-                            </span>
-                        <span class="contacts-list-msg">How have you been? I was...</span>
-                      </div>
-                      <!-- /.contacts-list-info -->
-                    </a>
-                  </li>
-                  <!-- End Contact Item -->
-                </ul>
-                <!-- /.contatcts-list -->
-              </div>
-              <!-- /.direct-chat-pane -->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-              <form action="#" method="post">
-                <div class="input-group">
-                  <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary btn-flat">Send</button>
-                      </span>
-                </div>
-              </form>
-            </div>
-            <!-- /.box-footer-->
-          </div>
-
-                  </div>
+        </div>
 
       </div>
   

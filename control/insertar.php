@@ -35,8 +35,8 @@
     $name=$_POST['txtname'];
     $last=$_POST['txtlast'];
     mysql_query("INSERT INTO `user` 
-    (`Email`, `Phone`, `Password`, `Name`, `LastName`) 
-    VALUES ('$email', '$phone', '$pass', '$name', '$last')");
+    (`Email`, `Phone`, `Password`, `Name`, `LastName`, `idcity`) 
+    VALUES ('$email', '$phone', '$pass', '$name', '$last', 1)");
 
     echo "<script>alert('Registro exitoso!');</script>";
         session_start();
