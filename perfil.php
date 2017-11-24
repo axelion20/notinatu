@@ -176,9 +176,8 @@
               <img style='width:100%' class='img-responsive pad' 
               src='foto/$row[foto]' alt='Photo'>
               <p>$row[message]</p>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-share'></i> Share</button>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-thumbs-o-up'></i> Like</button>
-              <span class='pull-right text-muted'>127 likes - 3 comments</span>
+              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+              <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
       
             <div class='box-footer box-comments'>
@@ -272,6 +271,7 @@
             SELECT IdUser, Name, LastName FROM user
             WHERE idcity='1'
             order by IdUser desc
+            limit 8
             ",$con) or die('Problema 1');
 
             while ($row=mysql_fetch_array($sql)) 
