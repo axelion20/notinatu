@@ -152,7 +152,7 @@
                <div class='box box-widget'>
             <div class='box-header with-border'>
               <div class='user-block'>
-                <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
+                <img class='img-circle' src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                 <span class='username'><a href='#''>
                 $row[Name] $row[LastName]</a></span>
                 <span class='description'>Compartido 

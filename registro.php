@@ -215,7 +215,7 @@
         <div class="col-lg-4">
    
 
-          <div class="info-box bg-yellow">
+          <div class="info-box bg-blue">
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
             <div class="info-box-content">

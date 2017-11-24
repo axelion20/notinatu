@@ -13,20 +13,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio </a></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li class="dropdown user user-menu">
+            <a href="index.php">
+              <i class="fa fa-home"></i>
+             <span class="hidden-xs">Inicio</span>
+            </a>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -38,12 +29,6 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-            <li class="dropdown user user-menu">
-            <a href="index.php">
-              <i class="fa fa-home"></i>
-             <span class="hidden-xs">Inicio</span>
-            </a>
-          </li>
             <li class="dropdown user user-menu">
             <a href="registro.php">
              <i class="fa fa-user"></i>

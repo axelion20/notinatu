@@ -154,7 +154,7 @@
           <?php 
           include('control/conexion.php');
           $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto 
+            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
             FROM content c 
             join user u on u.IdUser=c.iduser
             order by c.idcontent desc
@@ -167,10 +167,14 @@
                <div class='box box-widget'>
             <div class='box-header with-border'>
               <div class='user-block'>
-                <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
+                <img class='img-circle' src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                 <span class='username'><a href='#''>
                 $row[Name] $row[LastName]</a></span>
-                <span class='description'>Compartido el 23-11-2017 en  Chorrillos, Lima, Perú</span>
+                <span class='description'>Compartido 
+                el ".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."
+                en Lima, Perú</span>
               </div>
            
               <div class='box-tools'>

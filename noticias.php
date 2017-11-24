@@ -186,7 +186,7 @@
 
          <section class="col-lg-4 connectedSortable">
 
-          <div class="info-box bg-yellow">
+          <div class="info-box bg-blue">
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
             <div class="info-box-content">
@@ -203,7 +203,7 @@
             <!-- /.info-box-content -->
           </div>
 
-          <div class="small-box bg-yellow">
+          <div class="small-box bg-blue">
             <div class="inner">
               <h3>44</h3>
 
@@ -215,7 +215,7 @@
 
             <div class="box box-default collapsed-box small-box-footer">
             <div class="box-header with-border">
-              <h3 class="box-title">Añadir+</h3>
+              <h3 class="box-title" style="color: white">Añadir+</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -249,7 +249,7 @@
                <li>
                       <img src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                       <a class='users-list-name' href='user.php?id=$row[IdUser]'> $row[Name]  $row[LastName]</a>
-                      <a href='insertar.php'>
+                      <a href='control/addfriend.php?friend=$row[IdUser]&me=$_SESSION[id]'>
                        <button type='button' class='btn btn-block btn-primary btn-sm'>Añadir</button>
                       </a>
                      
@@ -264,7 +264,7 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">Ver todos los usuarios</a>
+                  <a href="javascript:void(0)" class="uppercase">Ver más</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
@@ -293,12 +293,12 @@
           </div>
           </div>
 
-           <div class="box box-danger">
+          <div class="box box-danger">
                 <div class="box-header with-border">
                   <h3 class="box-title">Amigos</h3>
 
                   <div class="box-tools pull-right">
-                    <span class="label label-danger">8 Nuevos amigos</span>
+                    <span class="label label-danger">Mis amigos</span>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                   </div>
@@ -309,10 +309,10 @@
                     <?php 
                     include('control/conexion.php');
                     $sql=mysql_query("
-                      SELECT u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
+                      SELECT f.idfriend,u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
                       FROM friend f
                       JOIN user u on u.IdUser=f.iduser2
-                      WHERE f.iduser2='5'
+                      WHERE f.iduser1=$_SESSION[id]
                       order by IdUser desc
                       ",$con) or die('Problema 1');
 
@@ -322,7 +322,7 @@
                          <li>
                                 <img src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
                                 <a class='users-list-name' href='user.php?id=$row[IdUser]'> $row[Name]  $row[LastName]</a>
-                                <a href='insertar.php'>
+                                <a href='control/borrarfriend.php?id=$row[idfriend]'>
                                  <button type='button' class='btn btn-block btn-danger btn-sm'>Eliminar</button>
                                 </a>
                                
@@ -337,12 +337,10 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">Ver todos los usuarios</a>
+                  <a href="amigos.php" class="uppercase">Ver todos los usuarios</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
-
-
         </section>
 
         </div>

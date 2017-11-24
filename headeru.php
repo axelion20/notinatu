@@ -13,20 +13,13 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio </a></li>
+            <li class="dropdown user user-menu">
+            <a href="index.php">
+              <i class="fa fa-home"></i>
+             <span class="hidden-xs">Inicio</span>
+            </a>
+          </li>
 
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
           </ul>
           <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
@@ -76,13 +69,7 @@
               <li class="footer"><a href="noticias.php">Ver todo</a></li>
             </ul>
           </li>
-          <!-- Tasks: style can be found in dropdown.less -->
-           <li class="dropdown user user-menu">
-            <a href="index.php">
-              <i class="fa fa-home"></i>
-             <span class="hidden-xs">Inicio</span>
-            </a>
-          </li>
+
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <!--  <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
@@ -93,11 +80,11 @@
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" class="img-circle" alt="User Image">
 
                 <p>
                   <?php echo $_SESSION['usuario'];?>
-                  <small>Member since Nov. 2012</small>
+                  <small>Meimbro desde el 2017</small>
                 </p>
               </li>
 
