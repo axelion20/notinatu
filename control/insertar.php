@@ -10,7 +10,7 @@
     	$id_usuario = $row1['IdUser'];
     	}	
     //VARIABLES
-    echo $texto=$_POST['txttexto'];
+    $texto=$_POST['txttexto'];
     //SUBIR FOTO
     $carpeta = "../foto/";
     opendir($carpeta);
@@ -19,12 +19,30 @@
     $nombrefile=$_FILES['foto']['name'];
     //REGISTRAR MASCOTA
     mysql_query("INSERT INTO `content` 
-    (`iduser`,`foto`, `message`) 
-    VALUES ('$id_usuario', '$nombrefile', '$texto')");
+    (`iduser`,`foto`, `message`, `date`) 
+    VALUES ('$id_usuario', '$nombrefile', '$texto', now())");
 
 
     echo "<script>alert('Publicación añadida!');</script>";
+    header("Location: /notinatu/perfil.php");
     }
 
-header("Location: /notinatu/perfil.php");
+    if (isset($_POST['registrar'])) 
+    {
+    $email=$_POST['txtemail'];
+    $phone=$_POST['txtphone'];
+    $pass=$_POST['txtpass'];
+    $name=$_POST['txtname'];
+    $last=$_POST['txtlast'];
+    mysql_query("INSERT INTO `user` 
+    (`Email`, `Phone`, `Password`, `Name`, `LastName`) 
+    VALUES ('$email', '$phone', '$pass', '$name', '$last')");
+
+    echo "<script>alert('Registro exitoso!');</script>";
+        session_start();
+        $_SESSION['usuario'] = $_POST['txtname'];
+        header("Location: ../perfil.php");
+    }
+
+
        ?>

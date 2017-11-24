@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <?php
   session_start();
    if (isset($_SESSION['usuario'])) 
@@ -11,6 +9,8 @@
      exit();
    }
 ?>
+<!DOCTYPE html>
+<html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
   <meta charset="utf-8">
@@ -40,14 +40,6 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -114,7 +106,8 @@
           </li>
           <!-- Tasks: style can be found in dropdown.less -->
            <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-home"></i>
+            <a href="index.php">
+              <i class="fa fa-home"></i>
              <span class="hidden-xs">Inicio</span>
             </a>
           </li>
@@ -156,28 +149,8 @@
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p><?php echo $_SESSION['usuario'];?></p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Conectado</a>
-        </div>
-      </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
-      <!-- sidebar menu: : style can be found in sidebar.less -->
+
+
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="active treeview">
@@ -264,75 +237,75 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Control panel</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
+
 
     <!-- Main content -->
     <section class="content">
 
       <!-- Main row -->
       <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 ">
+        <section class="col-lg-4 connectedSortable">
+          <div class="box box-info">
+            <div class="box-header">
+              <i class="fa fa-envelope"></i>
 
-        <section class="col-lg-3 col-lg-offset-1 connectedSortable">
-
-          <div class="info-box bg-yellow">
-            <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Events</span>
-              <span class="info-box-number">41,410</span>
-
-              <div class="progress">
-                <div class="progress-bar" style="width: 70%"></div>
-              </div>
-                  <span class="progress-description">
-                    70% Increase in 30 Days
-                  </span>
+              <h3 class="box-title">Acontecimiento importante</h3>
+            
             </div>
-            <!-- /.info-box-content -->
+            <form method='post' enctype='multipart/form-data' action="control/insertar.php">
+              <div class="box-body">
+                <input type="hidden" name="usuario" <?php echo "value='$_SESSION[usuario]'"?>>
+                  <div class="form-group">
+                    <input type="file" name="foto" class="form-control btn btn-primary" required>
+                  </div>
+                <div>
+                <textarea  required name="txttexto" placeholder="Escribe el problema"
+                style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; 
+                border: 1px solid #dddddd; padding: 10px;"></textarea>
+                </div>
+
+            </div>
+            <div class="box-footer clearfix">
+              <button type="submit" name="publicar" class="pull-right btn btn-default">Publicar
+                <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+            </form>
           </div>
 
-          <div class="box box-solid">
-            <div class="box-header with-border">
-              <h3 class="box-title">Carousel</h3>
+
+           <div class="box box-solid">
+            <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
+              <h3 class="box-title">Eventos próximos</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                   <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
                 </ol>
                 <div class="carousel-inner">
                   <div class="item">
-                    <img src="http://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+                    <img src="https://www.mef.gob.pe/contenidos/prensa/images/ntdp_26072016.jpg" alt="First slide">
 
                     <div class="carousel-caption">
-                      First Slide
-                    </div>
-                  </div>
-                  <div class="item">
-                    <img src="http://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
-
-                    <div class="carousel-caption">
-                      Second Slide
+                      1era imagen
                     </div>
                   </div>
                   <div class="item active">
-                    <img src="http://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
+                    <img src="https://image.slidesharecdn.com/ivanvsquezrivasplata-131114141944-phpapp01/95/utilizacin-de-herramientas-esri-en-la-gestin-de-riesgo-de-desastres-visor-geogrfico-sinpad-ivan-vsquez-rivasplata-instituto-nacional-de-defensa-civil-per-2-638.jpg?cb=1384439642" alt="Second slide">
 
                     <div class="carousel-caption">
-                      Third Slide
+                      2da imagen
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="https://image.slidesharecdn.com/elcambioclimticoylosdesastrespeligrosgeolgicosenelsurdelper-120525160607-phpapp02/95/el-cambio-climtico-y-los-desastres-peligros-geolgicos-en-el-sur-del-per-1-728.jpg?cb=1337962830" alt="Third slide">
+
+                    <div class="carousel-caption">
+                      3era imagen
                     </div>
                   </div>
                 </div>
@@ -347,46 +320,17 @@
             <!-- /.box-body -->
           </div>
 
+          
         </section>
- 
-        <section class="col-lg-4 connectedSortable">
 
-          <!-- quick email widget -->
-          <div class="box box-info">
-            <div class="box-header">
-              <i class="fa fa-envelope"></i>
-
-              <h3 class="box-title">Acontecimiento importante</h3>
-            
-            </div>
-              <form method='post' enctype='multipart/form-data' action="control/insertar.php">
-
-            <div class="box-body">
-              <input type="hidden" name="usuario" <?php echo "value='$_SESSION[usuario]'"?>>
-
-                <div class="form-group">
-                  <input type="file" name="foto" class="form-control btn btn-primary" required>
-                </div>
-                <div>
-                <textarea  required name="txttexto" placeholder="Escribe el problema"
-                            style="width: 100%; height: 125px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                </div>
-
-            </div>
-            <div class="box-footer clearfix">
-              <button type="submit" name="publicar" class="pull-right btn btn-default">Publicar
-                <i class="fa fa-arrow-circle-right"></i></button>
-            </div>
-            </form>
-          </div>
-
+        <section class="col-lg-4 col-md-6 connectedSortable ui-sortable">
           <?php 
           include('control/conexion.php');
           $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto 
+            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
             FROM content c 
             join user u on u.IdUser=c.iduser
-            WHERE u.Name='Axel'
+            WHERE u.Name='$_SESSION[usuario]'
             order by c.idcontent desc
             ",$con) or die('Problema 1');
 
@@ -399,13 +343,19 @@
                 <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
                 <span class='username'><a href='#''>
                 $row[Name] $row[LastName]</a></span>
-                <span class='description'>Compartido el 23-11-2017 en  Chorrillos, Lima, Perú</span>
+                <span class='description'>Compartido 
+                el ".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."
+                en Lima, Perú</span>
               </div>
            
               <div class='box-tools'>
                 <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
                 </button>
-                <button type='button' class='btn btn-box-tool' data-widget='remove'><i class='fa fa-times'></i></button>
+                <a type='button' class='btn btn-box-tool' href='control/borrarpubli.php?id=$row[idcontent]'>
+                  <i class='fa fa-times'></i>
+                </a>
               </div>
            
             </div>
@@ -429,8 +379,8 @@
                         Maria Gonzales
                         <span class='text-muted pull-right'>8:03 PM Today</span>
                       </span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
+                Es un hecho establecido desde hace tiempo que un lector se distraerá con el contenido legible de una página al mirar su diseño.
+
                 </div>
 
               </div>
@@ -451,14 +401,33 @@
                "
              ;}
           ?>
+          
         </section>
 
-        <section class="col-lg-3 connectedSortable">
+         <section class="col-lg-4 connectedSortable">
+
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Eventos</span>
+              <span class="info-box-number">410</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+                  <span class="progress-description">
+                    Participa en nuestros eventos!
+                  </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+
           <div class="small-box bg-yellow">
             <div class="inner">
               <h3>44</h3>
 
-              <p>Familires agregados</p>
+              <p>Amigos agregados</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
@@ -495,20 +464,17 @@
                 </div>
                 <button style="width: 100%" type="submit" name="addtel" class="btn btn-primary">Agregar contacto email</button>
                 </form>
-
-
             </div>
             <!-- /.box-body -->
           </div>
-          <!-- /.box -->
           </div>
 
-              <div class="box box-danger">
+           <div class="box box-danger">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Latest Members</h3>
+                  <h3 class="box-title">Amigos</h3>
 
                   <div class="box-tools pull-right">
-                    <span class="label label-danger">8 New Members</span>
+                    <span class="label label-danger">8 Nuevos amigos</span>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                   </div>
@@ -519,247 +485,57 @@
                     <li>
                       <img src="dist/img/user1-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Alexander Pierce</a>
-                      <span class="users-list-date">Today</span>
+                      <span class="users-list-date">Hoy</span>
                     </li>
                     <li>
                       <img src="dist/img/user8-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Norman</a>
-                      <span class="users-list-date">Yesterday</span>
+                      <span class="users-list-date">Ayer</span>
                     </li>
                     <li>
                       <img src="dist/img/user7-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Jane</a>
-                      <span class="users-list-date">12 Jan</span>
+                      <span class="users-list-date">12 de enero</span>
                     </li>
                     <li>
                       <img src="dist/img/user6-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">John</a>
-                      <span class="users-list-date">12 Jan</span>
+                      <span class="users-list-date">12 de enero</span>
                     </li>
                     <li>
                       <img src="dist/img/user2-160x160.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Alexander</a>
-                      <span class="users-list-date">13 Jan</span>
+                      <span class="users-list-date">13 de enero</span>
                     </li>
                     <li>
                       <img src="dist/img/user5-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Sarah</a>
-                      <span class="users-list-date">14 Jan</span>
+                      <span class="users-list-date">14 de enero</span>
                     </li>
                     <li>
                       <img src="dist/img/user4-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Nora</a>
-                      <span class="users-list-date">15 Jan</span>
+                      <span class="users-list-date">15 de enero</span>
                     </li>
                     <li>
                       <img src="dist/img/user3-128x128.jpg" alt="User Image">
                       <a class="users-list-name" href="#">Nadia</a>
-                      <span class="users-list-date">15 Jan</span>
+                      <span class="users-list-date">12 de enero</span>
                     </li>
                   </ul>
                   <!-- /.users-list -->
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer text-center">
-                  <a href="javascript:void(0)" class="uppercase">View All Users</a>
+                  <a href="javascript:void(0)" class="uppercase">Ver todos los usuarios</a>
                 </div>
                 <!-- /.box-footer -->
               </div>
 
-<!--
-              <div class="box box-warning direct-chat direct-chat-warning">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Direct Chat</h3>
 
-                  <div class="box-tools pull-right">
-                    <span data-toggle="tooltip" title="3 New Messages" class="badge bg-yellow">3</span>
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts"
-                            data-widget="chat-pane-toggle">
-                      <i class="fa fa-comments"></i></button>
-                    
-                  </div>
-                </div>
-                
-                <div class="box-body">
-                  
-                  <div class="direct-chat-messages">
-                  
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
-                      </div>
-                  
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                     
-                      <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
-                      </div>
-                    
-                    </div>
-                 
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                      </div>
-                      
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                   
-                      <div class="direct-chat-text">
-                        You better believe it!
-                      </div>
-                    
-                    </div>
-                  
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                        <span class="direct-chat-timestamp pull-right">23 Jan 5:37 pm</span>
-                      </div>
-                     
-                      <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
-                     
-                      <div class="direct-chat-text">
-                        Working with AdminLTE on a great new app! Wanna join?
-                      </div>
-                     
-                    </div>
-          
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                        <span class="direct-chat-timestamp pull-left">23 Jan 6:10 pm</span>
-                      </div>
-                   
-                      <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
-                    
-                      <div class="direct-chat-text">
-                        I would love to.
-                      </div>
-                    
-                    </div>
-                 
-
-                  </div>
-   
-                  <div class="direct-chat-contacts">
-                    <ul class="contacts-list">
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Count Dracula
-                                  <small class="contacts-list-date pull-right">2/28/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">How have you been? I was...</span>
-                          </div>
-                         
-                        </a>
-                      </li>
-                
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Sarah Doe
-                                  <small class="contacts-list-date pull-right">2/23/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">I will be waiting for...</span>
-                          </div>
-                      
-                        </a>
-                      </li>
-                   
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Nadia Jolie
-                                  <small class="contacts-list-date pull-right">2/20/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">I'll call you back at...</span>
-                          </div>
-                        
-                        </a>
-                      </li>
-                     
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Nora S. Vans
-                                  <small class="contacts-list-date pull-right">2/10/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">Where is your new...</span>
-                          </div>
-                         
-                        </a>
-                      </li>
-                      
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  John K.
-                                  <small class="contacts-list-date pull-right">1/27/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">Can I take a look at...</span>
-                          </div>
-                         
-                        </a>
-                      </li>
-                    
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Image">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Kenneth M.
-                                  <small class="contacts-list-date pull-right">1/4/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">Never mind I found...</span>
-                          </div>
-                         
-                        </a>
-                      </li>
-                     
-                    </ul>
-                  
-                  </div>
-                 
-                </div>
-              
-                <div class="box-footer">
-                  <form action="#" method="post">
-                    <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                      <span class="input-group-btn">
-                            <button type="button" class="btn btn-warning btn-flat">Send</button>
-                          </span>
-                    </div>
-                  </form>
-                </div>
-                
-              </div>
-              -->
-              <!--/.box -->
         </section>
 
-  
+        </div>
       </div>
       <!-- /.row (main row) -->
 
@@ -771,201 +547,8 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2017 <a href="">Almsaeed Studio</a>.</strong> 
+    <strong>Copyright &copy; 2017 <a href="">GalaxyTec</a>.</strong> 
   </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Create the tabs -->
-    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-    </ul>
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <!-- Home tab content -->
-      <div class="tab-pane" id="control-sidebar-home-tab">
-        <h3 class="control-sidebar-heading">Recent Activity</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                <p>Will be 23 on April 24th</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-user bg-yellow"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                <p>New phone +1(800)555-1234</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                <p>nora@example.com</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-              <div class="menu-info">
-                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                <p>Execution time 5 seconds</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-        <h3 class="control-sidebar-heading">Tasks Progress</h3>
-        <ul class="control-sidebar-menu">
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Custom Template Design
-                <span class="label label-danger pull-right">70%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Update Resume
-                <span class="label label-success pull-right">95%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Laravel Integration
-                <span class="label label-warning pull-right">50%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="javascript:void(0)">
-              <h4 class="control-sidebar-subheading">
-                Back End Framework
-                <span class="label label-primary pull-right">68%</span>
-              </h4>
-
-              <div class="progress progress-xxs">
-                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-              </div>
-            </a>
-          </li>
-        </ul>
-        <!-- /.control-sidebar-menu -->
-
-      </div>
-      <!-- /.tab-pane -->
-      <!-- Stats tab content -->
-      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
-      <!-- /.tab-pane -->
-      <!-- Settings tab content -->
-      <div class="tab-pane" id="control-sidebar-settings-tab">
-        <form method="post">
-          <h3 class="control-sidebar-heading">General Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Report panel usage
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Some information about this general settings option
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Allow mail redirect
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Other sets of options are available
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Expose author name in posts
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-
-            <p>
-              Allow the user to show his name in blog posts
-            </p>
-          </div>
-          <!-- /.form-group -->
-
-          <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Show me as online
-              <input type="checkbox" class="pull-right" checked>
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Turn off notifications
-              <input type="checkbox" class="pull-right">
-            </label>
-          </div>
-          <!-- /.form-group -->
-
-          <div class="form-group">
-            <label class="control-sidebar-subheading">
-              Delete chat history
-              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-            </label>
-          </div>
-          <!-- /.form-group -->
-        </form>
-      </div>
-      <!-- /.tab-pane -->
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-  <!-- Add the sidebar's background. This div must be placed
-       immediately after the control sidebar -->
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
