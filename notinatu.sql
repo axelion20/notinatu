@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-11-2017 a las 23:55:44
+-- Tiempo de generación: 24-11-2017 a las 11:19:39
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -67,8 +67,16 @@ CREATE TABLE `content` (
   `video` varchar(100) NOT NULL,
   `message` varchar(800) NOT NULL,
   `location` varchar(100) NOT NULL,
-  `idaccion` int(11) NOT NULL
+  `idaccion` int(11) NOT NULL,
+  `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `content`
+--
+
+INSERT INTO `content` (`idcontent`, `iduser`, `item`, `foto`, `video`, `message`, `location`, `idaccion`, `date`) VALUES
+(8, 1, 0, 'desastres3.jpg', '', 'Terremoto', '', 0, '2017-11-24 05:06:08');
 
 -- --------------------------------------------------------
 
@@ -83,15 +91,18 @@ CREATE TABLE `user` (
   `Password` varchar(45) NOT NULL,
   `Name` varchar(45) NOT NULL,
   `LastName` varchar(45) NOT NULL,
-  `IdAccion` int(11) NOT NULL
+  `IdAccion` int(11) NOT NULL,
+  `photo` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`IdUser`, `Email`, `Phone`, `Password`, `Name`, `LastName`, `IdAccion`) VALUES
-(1, 'a@gmail.com', '123', '123', 'Axel', 'Sifuentes', 1);
+INSERT INTO `user` (`IdUser`, `Email`, `Phone`, `Password`, `Name`, `LastName`, `IdAccion`, `photo`) VALUES
+(1, 'a@gmail.com', '123', '123', 'Axel', 'Sifuentes', 1, ''),
+(2, 'informaxtec16@gmail.com', '993209571', '123', 'Axel Miguel', 'Mena', 0, ''),
+(3, '321@gmail.com', '321', '321', 'Nieto', 'Mena', 0, '');
 
 --
 -- Índices para tablas volcadas
@@ -139,12 +150,12 @@ ALTER TABLE `contact`
 -- AUTO_INCREMENT de la tabla `content`
 --
 ALTER TABLE `content`
-  MODIFY `idcontent` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcontent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
