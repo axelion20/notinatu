@@ -223,23 +223,23 @@
 
         <div class="col-lg-4">
    
-
-          <div class="info-box bg-yellow">
+          <div class="info-box bg-blue" >
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Events</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Eventos</span>
+              <span class="info-box-number">410</span>
 
               <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>
               </div>
                   <span class="progress-description">
-                    70% Increase in 30 Days
+                    Participa en nuestros eventos!
                   </span>
             </div>
             <!-- /.info-box-content -->
           </div>
+          
           <div class="box box-solid">
             <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
               <h3 class="box-title">Eventos próximos</h3>
