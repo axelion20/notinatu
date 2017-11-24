@@ -39,6 +39,18 @@
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <li class="dropdown user user-menu">
+            <a href="index.php">
+              <i class="fa fa-home"></i>
+             <span class="hidden-xs">Inicio</span>
+            </a>
+          </li>
+            <li class="dropdown user user-menu">
+            <a href="registro.php">
+             <i class="fa fa-user"></i>
+              <span class="hidden-xs">Registrar</span>
+            </a>
+          </li>
+            <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <i class="fa fa-user"></i>
               <span class="hidden-xs">Iniciar sesión</span>

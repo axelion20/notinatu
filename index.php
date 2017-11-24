@@ -68,10 +68,6 @@
            <section class="col-lg-4 col-md-6 connectedSortable">
 
             <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="true">NUEVO!</a></li>
-              <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">REGISTRO DE USUARIO</a></li>
-            </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="activity">
                 <!-- Post -->
@@ -147,65 +143,6 @@
             </div>
                 <!-- /.post -->
               </div>
-
-
-              <div class="tab-pane" id="settings">
-
-                <form class="form-horizontal" action="control/insertar.php" method="post">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Nombres</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Nombres" name="txtname" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Apellidos</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Apellidos" name="txtlast" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Teléfono</label>
-
-                    <div class="col-sm-10">
-                      <input type="number" max="999999999" class="form-control" placeholder="Teléfono" name="txtphone" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" placeholder="Email" name="txtemail" required>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Contraseña</label>
-
-                    <div class="col-sm-10">
-                      <input type="password" name="txtpass" class="form-control" placeholder="Password" required name="txtpass">
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox" required> Acepto todos los <a href="#">terminos y condiciones.</a>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger" name="registrar">Registrar
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-              <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->
           </div>

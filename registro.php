@@ -1,13 +1,3 @@
-<?php
-  session_start();
- if (isset($_SESSION['usuario'])) 
- {
-  
-  }
-  else{
-
-  }
- ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -51,100 +41,17 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <header class="main-header">
-    <nav class="navbar navbar-static-top" style="margin: 0px">
-      <div class="container">
-        <div class="navbar-header" style="margin-top: -10px">
-          <a href="#" class="navbar-brand">
-            <img width="40px" class="img-circle " src="https://icon-icons.com/icons2/1310/PNG/512/recycling_86328.png" alt="User Image">
-          </a>
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-            <i class="fa fa-bars"></i>
-          </button>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Inicio </a></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Buscar...">
-            </div>
-          </form>
-        </div>
-        <!-- /.navbar-collapse -->
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-             <i class="fa fa-user"></i>
-              <span class="hidden-xs">Iniciar sesión</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header" style="height: 100%">
-               <form action="control/validar.php" method="post">
-          <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Email o Télefono" name="txtusuario">
-            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="password" name="txtpass" class="form-control" placeholder="Password">
-            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-          </div>
-          <div class="row">
-            <div class="col-xs-8">
-              <div class="checkbox icheck">
-                <label>
-                 <a href="#" style="color: white">Olvidé mi password</a>
-                </label>
-              </div>
-            </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" name="login" class="btn btn-primary btn-block btn-flat">Ingresar</button>
-            </div><!-- /.col -->
-            <div class="col-lg-12">
-              <a class="btn btn-block btn-social btn-facebook">
-                <i class="fa fa-facebook"></i> Ingresar con Facebook
-              </a>
-              <a class="btn btn-block btn-social btn-google">
-                <i class="fa fa-google-plus"></i> Ingresar con Google
-              </a>
-            </div>
-
-            
-          </div>
-        </form>
-              </li>
-
-            </ul>
-          </li>
-
-          </ul>
-        </div>
-        <!-- /.navbar-custom-menu -->
-      </div>
-      <!-- /.container-fluid -->
-    </nav>
-  </header>
-
-
+  <?php
+        include('control/conexion.php');
+            session_start();
+                 if (isset($_SESSION['usuario'])) 
+                 {
+                  header("Location: /notinatu/perfil.php");
+                  }
+                  else{
+                   include('header.php');
+                 }
+                 ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin: 0">
@@ -157,16 +64,7 @@
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
            <section class="col-lg-4 col-md-6 connectedSortable">
-            
-         
-        </section>
-
-           <div class="col-lg-4">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#activity" data-toggle="tab" aria-expanded="true">NUEVO!</a></li>
-              <li class=""><a href="#settings" data-toggle="tab" aria-expanded="false">REGISTRO DE USUARIO</a></li>
-            </ul>
+            <div class="nav-tabs-custom">
             <div class="tab-content">
               <div class="tab-pane active" id="activity">
                 <!-- Post -->
@@ -242,11 +140,22 @@
             </div>
                 <!-- /.post -->
               </div>
+            </div>
+            <!-- /.tab-content -->
+          </div>
+         
+        </section>
 
-
-              <div class="tab-pane" id="settings">
-
-                <form class="form-horizontal" action="control/insertar.php" method="post">
+           <div class="col-lg-4">
+            <div class="box box-solid">
+              <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
+            <form class="form-horizontal" action="control/insertar.php" method="post">
+              <div class="user-block">
+                    <img class="img-bordered-sm" src="https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png" alt="User Image">
+                        <span class="username">
+                          REGISTRO DE USUARIO
+                        </span>
+                  </div>
                   <div class="form-group">
                     <label for="inputName" class="col-sm-2 control-label">Nombres</label>
 
@@ -294,84 +203,14 @@
                   </div>
                   <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger" name="registrar">Registrar</button>
+                      <button type="submit" class="btn btn-danger" name="registrar">Registrar
+                      </button>
                     </div>
                   </div>
                 </form>
-              </div>
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
-          </div>
-          <?php 
-          include('control/conexion.php');
-          $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto 
-            FROM content c 
-            join user u on u.IdUser=c.iduser
-            order by c.idcontent desc
-            limit 5
-            ",$con) or die('Problema 1');
-
-            while ($row=mysql_fetch_array($sql)) 
-            {
-               echo "
-               <div class='box box-widget'>
-            <div class='box-header with-border'>
-              <div class='user-block'>
-                <img class='img-circle' src='dist/img/user1-128x128.jpg' alt='User Image'>
-                <span class='username'><a href='#''>
-                $row[Name] $row[LastName]</a></span>
-                <span class='description'>Compartido el 23-11-2017 en  Chorrillos, Lima, Perú</span>
-              </div>
-           
-              <div class='box-tools'>
-                <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
-                </button>
-              </div>
-           
-            </div>
-         
-            <div class='box-body'>
-              <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]' alt='Photo'>
-              <p>$row[message]</p>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-share'></i> Share</button>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-thumbs-o-up'></i> Like</button>
-              <span class='pull-right text-muted'>127 likes - 3 comments</span>
-            </div>
-      
-            <div class='box-footer box-comments'>
-              <div class='box-comment'>
-                <img class='img-circle img-sm' src='dist/img/user3-128x128.jpg' alt='User Image'>
-                <div class='comment-text'>
-                      <span class='username'>
-                        Maria Gonzales
-                        <span class='text-muted pull-right'>8:03 PM Today</span>
-                      </span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </div>
-              </div>
-            </div>
-
-            <div class='box-footer'>
-              <form action='#' method='post'>
-                <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
-   
-                <div class='img-push'>
-                  <input type='text' class='form-control input-sm' placeholder='Preciona enter para comentar...'>
-                </div>
-              </form>
-            </div>
-         
-          </div>
-               "
-             ;}
-          ?>    
-          <!-- /.nav-tabs-custom -->
         </div>
-           
+      </div>
+       </div>    
 
         <div class="col-lg-4">
    

@@ -43,42 +43,37 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning">6</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">Tienes 10 nuevas noticias</li>
+              <li class="header">Tienes 6 nuevas noticias</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
                   <li>
                     <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <i class="fa fa-users text-aqua"></i> Tus amigos publicaron hoy
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
+                      <i class="fa fa-warning text-yellow"></i> Ocurrió un suceso muy peligroso por Lima, Perú a las 20 horas el día 23 del 11 del año 2017
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
+                      <i class="fa fa-users text-red"></i> 5 nuevos miembros se unieron
                     </a>
                   </li>
+
                   <li>
                     <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
+                      <i class="fa fa-user text-red"></i> Cambiaste tu nombre de usuario
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="footer"><a href="#">Ver todo</a></li>
+              <li class="footer"><a href="noticias.php">Ver todo</a></li>
             </ul>
           </li>
           <!-- Tasks: style can be found in dropdown.less -->
