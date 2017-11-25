@@ -81,7 +81,7 @@
                   </div>
                   <!-- /.user-block -->
                   <div class="row margin-bottom">
-                    <div class="col-sm-6">
+                    <div class="col-sm-5">
                       <img class="img-responsive" src="https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/03/21/58d1d581c901b.jpeg" alt="Photo">
                     </div>
                     <!-- /.col -->
@@ -93,7 +93,7 @@
                           <img class="img-responsive" src="https://cde.peru.com//ima/0/1/5/9/0/1590748/611x458/peru.jpg" alt="Photo">
                         </div>
                         <!-- /.col -->
-                        <div class="col-sm-6">
+                        <div class="col-sm-5">
                           <img class="img-responsive" src="http://derechoshumanos.pe/wp-content/uploads/2017/03/huaycoloro-RPP.jpg" alt="Photo">
                           <br>
                           <img class="img-responsive" src="http://portal.andina.pe/EDPfotografia2/Thumbnail/2012/04/07/000179881W.jpg" alt="Photo">
@@ -149,7 +149,7 @@
          
         </section>
 
-           <div class="col-lg-4">
+           <div class="col-lg-5">
           
           <?php 
           include('control/conexion.php');
@@ -185,8 +185,7 @@
             </div>
          
             <div class='box-body'>
-              <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]' alt='Photo'>
+             <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
               <p>$row[message]</p>
               <button type='button' class='btn btn-default btn-xs'><i class='fa fa-share'></i> Share</button>
               <button type='button' class='btn btn-default btn-xs'><i class='fa fa-thumbs-o-up'></i> Like</button>
@@ -225,7 +224,7 @@
         </div>
            
 
-        <div class="col-lg-4">
+        <div class="col-lg-3">
    
           <div class="info-box bg-blue" >
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
@@ -258,6 +257,7 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="item">
+
                     <img style="width: 100%" src="https://www.mef.gob.pe/contenidos/prensa/images/ntdp_26072016.jpg" alt="First slide">
 
                     <div class="carousel-caption">
@@ -315,7 +315,7 @@
                   <!-- /.direct-chat-info -->
                   <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
-                    Is this template really for free? That's unbelievable!
+                    hola! dejame un mensaje. 
                   </div>
                   <!-- /.direct-chat-text -->
                 </div>

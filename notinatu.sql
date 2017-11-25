@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2017 a las 11:19:39
+-- Tiempo de generación: 25-11-2017 a las 00:06:25
 -- Versión del servidor: 10.1.25-MariaDB
 -- Versión de PHP: 5.6.31
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `notinatu`
+-- Base de datos: `natuapp`
 --
 
 -- --------------------------------------------------------
@@ -39,18 +39,67 @@ CREATE TABLE `action` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `city`
+--
+
+CREATE TABLE `city` (
+  `idcity` int(11) NOT NULL,
+  `city` varchar(45) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `city`
+--
+
+INSERT INTO `city` (`idcity`, `city`) VALUES
+(1, 'Lima'),
+(2, 'Arequipa'),
+(3, 'Cuzco'),
+(4, 'Trujillo'),
+(5, 'Chiclayo'),
+(6, 'Piura'),
+(7, 'Iquitos'),
+(8, 'Huancayo'),
+(9, 'Tacna'),
+(10, 'Chimbote'),
+(11, 'Cajamarca'),
+(12, 'Puno'),
+(13, 'Tumbes'),
+(14, 'Tarapoto'),
+(15, 'Huánuco'),
+(16, 'Ayacucho'),
+(17, 'Huaraz'),
+(18, 'Pucallpa'),
+(19, 'Ica'),
+(20, 'Puerto Maldonado'),
+(21, 'Juliaca'),
+(22, 'Abancay'),
+(23, 'Cerro de Pasco'),
+(24, 'Mouobamba'),
+(25, 'Huacho'),
+(26, 'Chachapoyas'),
+(27, 'Pisco'),
+(28, 'Callao'),
+(29, 'Chincha Alta'),
+(30, 'Tingo Maria'),
+(31, 'Moquegua'),
+(32, '');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `contact`
 --
 
 CREATE TABLE `contact` (
-  `IdContact` int(11) NOT NULL,
-  `IdUser` int(11) NOT NULL,
-  `Item` int(11) NOT NULL,
-  `Name` varchar(45) NOT NULL,
-  `LastName` varchar(45) NOT NULL,
-  `Phone1` varchar(45) NOT NULL,
-  `Phone2` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL
+  `idcontact` int(11) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `item` int(11) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `lastname` varchar(45) NOT NULL,
+  `phone1` varchar(45) NOT NULL,
+  `phone2` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -76,7 +125,29 @@ CREATE TABLE `content` (
 --
 
 INSERT INTO `content` (`idcontent`, `iduser`, `item`, `foto`, `video`, `message`, `location`, `idaccion`, `date`) VALUES
-(8, 1, 0, 'desastres3.jpg', '', 'Terremoto', '', 0, '2017-11-24 05:06:08');
+(12, 8, 0, 'desastres3.jpg', '', 'Terromoto', '', 0, '2017-11-24 16:02:25'),
+(15, 1, 0, '1472225923_727879_1472226798_noticia_normal.jpg', '', 'Terromo por Lima', '', 0, '2017-11-24 16:48:53');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `friend`
+--
+
+CREATE TABLE `friend` (
+  `idfriend` int(11) NOT NULL,
+  `iduser1` int(11) NOT NULL,
+  `iduser2` int(11) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `friend`
+--
+
+INSERT INTO `friend` (`idfriend`, `iduser1`, `iduser2`, `date`) VALUES
+(1, 1, 9, '2017-11-24 17:42:25'),
+(4, 1, 8, '2017-11-24 17:52:12');
 
 -- --------------------------------------------------------
 
@@ -92,17 +163,21 @@ CREATE TABLE `user` (
   `Name` varchar(45) NOT NULL,
   `LastName` varchar(45) NOT NULL,
   `IdAccion` int(11) NOT NULL,
-  `photo` varchar(200) NOT NULL
+  `photo` varchar(200) NOT NULL,
+  `idcity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `user` (`IdUser`, `Email`, `Phone`, `Password`, `Name`, `LastName`, `IdAccion`, `photo`) VALUES
-(1, 'a@gmail.com', '123', '123', 'Axel', 'Sifuentes', 1, ''),
-(2, 'informaxtec16@gmail.com', '993209571', '123', 'Axel Miguel', 'Mena', 0, ''),
-(3, '321@gmail.com', '321', '321', 'Nieto', 'Mena', 0, '');
+INSERT INTO `user` (`IdUser`, `Email`, `Phone`, `Password`, `Name`, `LastName`, `IdAccion`, `photo`, `idcity`) VALUES
+(1, 'a@gmail.com', '123', '123', 'Axel', 'Sifuentes', 1, '', 1),
+(5, '321@gmail.com', '321', '321', 'Usuario', 'Prueba', 0, '', 1),
+(6, 'informaxtec16@gmail.com', '993209571', '123', 'Axel Miguel', 'Mena', 0, '', 0),
+(7, 'informaxtec16@gmail.com', '993209571', '321', 'Axel Miguel', 'Mena', 0, '', 1),
+(8, 'enma@gmail.com', '123', '123', 'Enma', 'Mena', 0, '', 1),
+(9, 'j@gmail.com', '123', '123', 'Jorge', 'Sifuentes', 0, '', 1);
 
 --
 -- Índices para tablas volcadas
@@ -115,16 +190,28 @@ ALTER TABLE `action`
   ADD PRIMARY KEY (`idaction`);
 
 --
+-- Indices de la tabla `city`
+--
+ALTER TABLE `city`
+  ADD PRIMARY KEY (`idcity`);
+
+--
 -- Indices de la tabla `contact`
 --
 ALTER TABLE `contact`
-  ADD PRIMARY KEY (`IdContact`);
+  ADD PRIMARY KEY (`idcontact`);
 
 --
 -- Indices de la tabla `content`
 --
 ALTER TABLE `content`
   ADD PRIMARY KEY (`idcontent`);
+
+--
+-- Indices de la tabla `friend`
+--
+ALTER TABLE `friend`
+  ADD PRIMARY KEY (`idfriend`);
 
 --
 -- Indices de la tabla `user`
@@ -142,20 +229,30 @@ ALTER TABLE `user`
 ALTER TABLE `action`
   MODIFY `idaction` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT de la tabla `city`
+--
+ALTER TABLE `city`
+  MODIFY `idcity` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
 -- AUTO_INCREMENT de la tabla `contact`
 --
 ALTER TABLE `contact`
-  MODIFY `IdContact` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idcontact` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `content`
 --
 ALTER TABLE `content`
-  MODIFY `idcontent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `idcontent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT de la tabla `friend`
+--
+ALTER TABLE `friend`
+  MODIFY `idfriend` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;COMMIT;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

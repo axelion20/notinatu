@@ -43,6 +43,21 @@
         $_SESSION['usuario'] = $_POST['txtname'];
         header("Location: ../perfil.php");
     }
+     if (isset($_POST['alertar'])) 
+    {
+ 
+     echo $usuario=$_POST['usuario'];
+ 
+    mysql_query("INSERT INTO `content` 
+    (`iduser`, `message`, `date`) 
+    VALUES ( $usuario, 'Alerta: Auxilienme porfavor.', now())");
+
+   echo "<script> 
+                alert('Alerta enviada!');
+        location.href='../perfil.php';
+        </script>";
+        
+    }
 
 
        ?>

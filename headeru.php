@@ -31,6 +31,13 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+
+          <li class="dropdown user user-menu" style="background: red">
+            <a href="alerta.php">
+             <i class="fa fa-exclamation-triangle"></i>
+              <span class="hidden-xs">Alerta</span>
+            </a>
+          </li>
           
 
           <li class="dropdown notifications-menu">

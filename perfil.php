@@ -57,7 +57,16 @@
       <!-- Main row -->
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
-        <section class="col-lg-4 connectedSortable">
+        <section class="col-lg-3 connectedSortable">
+          <div class="box box-info">
+          <form action='control/insertar.php' method='post'>
+                        <input type='hidden' name='usuario' name='usuario' 
+                         value='<?php echo $_SESSION['id']?>'>
+                      <button  type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
+                      </button>
+                      
+                    </form>
+            </div>
           <div class="box box-info">
             <div class="box-header">
               <i class="fa fa-envelope"></i>
@@ -69,7 +78,7 @@
               <div class="box-body">
                 <input type="hidden" name="usuario" <?php echo "value='$_SESSION[usuario]'"?>>
                   <div class="form-group">
-                    <input type="file" name="foto" class="form-control btn btn-primary" required>
+                    <input style="" type="file" name="foto" class="form-control btn btn-primary" required>
                   </div>
                 <div>
                 <textarea  required name="txttexto" placeholder="Escribe el problema"
@@ -135,7 +144,7 @@
           
         </section>
 
-        <section class="col-lg-4 col-md-6 connectedSortable ui-sortable">
+        <section class="col-lg-5 col-md-6 connectedSortable ui-sortable">
           <?php 
           include('control/conexion.php');
           $sql=mysql_query("
@@ -152,7 +161,7 @@
                <div class='box box-widget'>
             <div class='box-header with-border'>
               <div class='user-block'>
-                <img class='img-circle' src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
+               
                 <span class='username'><a href='#''>
                 $row[Name] $row[LastName]</a></span>
                 <span class='description'>Compartido 
@@ -161,6 +170,11 @@
                 a las ".substr($row['date'], 10,6)."
                 en Lima, Perú</span>
               </div>
+              <div class='box-body'>
+
+               <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
+
+               </div>
            
               <div class='box-tools'>
                 <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
@@ -174,8 +188,8 @@
          
             <div class='box-body'>
               <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]' alt='Photo'>
-              <p>$row[message]</p>
+              src='foto/$row[foto]'>
+              <p style='color:red; font-size:15px'>$row[message]</p>
               <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
               <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
