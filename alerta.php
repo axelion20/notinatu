@@ -61,21 +61,18 @@
 
       <!-- Main row -->
       <div class="row">
-        <div class="col-lg-12 col-lg-offset-1 ">
-          <section class="col-lg-3 col-md-6 connectedSortable">
+        <div class="col-lg-10 col-lg-offset-1 ">
+           <div class="col-lg-4 col-lg-offset-4">
             <div class="box" style="width: 100%;">
               <img src="http://www.eindhovenstartups.com/wp-content/uploads/2016/08/blank_male_avatar.jpg" width="100%" height="100%">
             </div>
-          </section>
-
-           <div class="col-lg-6">
           
         <div class="box box-solid">
               <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
         
                   <div class="form-group">
 
-                    <div class="col-sm-offset-2 col-sm-12">
+                    <div class=" col-sm-12">
                       <?php
         include('control/conexion.php');
           
