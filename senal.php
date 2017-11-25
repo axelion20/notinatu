@@ -58,7 +58,11 @@
 
     <!-- Main content -->
     <section class="content">
-
+      <audio controls style="visibility: hidden;" autoplay="true">
+      <source src="sonido.ogg" type="audio/ogg">
+      <source src="sonido.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
       <!-- Main row -->
       <div class="row" style="margin-top: 6rem; ">
         <div class="col-lg-12 col-lg-offset-1 ">
@@ -69,6 +73,11 @@
           </section>
         <div class="col-lg-3" style="text-align: center;">
           <h1>Pulso del usuario</h1>
+          <button style="background: silver;
+    border-radius: 5px;
+    width: 115px;
+    height: 42px;
+    font-size: 2rem;">Estoy bien</button>
         </div>
       </div>
   
