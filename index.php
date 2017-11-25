@@ -249,11 +249,9 @@
               <h3 class="box-title">Direct Chat</h3>
 
               <div class="box-tools pull-right">
-                <span data-toggle="tooltip" title="" class="badge bg-light-blue" data-original-title="3 New Messages">3</span>
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-widget="chat-pane-toggle" data-original-title="Contacts">
-                  <i class="fa fa-comments"></i></button>
+                
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
               </div>
             </div>
@@ -263,11 +261,13 @@
               <div class="direct-chat-messages">
                 <!-- Message. Default to the left -->
                 
+                
                 <?php 
-          $sql=mysql_query(" SELECT p.pregunta, r.respuesta 
+          $sql=mysql_query(" SELECT c.idchat,p.pregunta, r.respuesta, c.date
                             FROM chat c
                             join preguntas p on p.idpregunta=c.idpregunta
                             join respuesta r on r.idrespuesta=c.idrespuesta
+                            order by c.idchat desc
             ",$con) or die('Problema 1');
 
             while ($row=mysql_fetch_array($sql)) 
@@ -276,20 +276,23 @@
                <div class='direct-chat-msg'>
                   <div class='direct-chat-info clearfix'>
                     <span class='direct-chat-name pull-left'>Alexander Pierce</span>
-                    <span class='direct-chat-timestamp pull-right'>23 Jan 2:00 pm</span>
+                    <span class='direct-chat-timestamp pull-right'> ".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."</span>
                   </div>
                   <!-- /.direct-chat-info -->
                   <img class='direct-chat-img' src='dist/img/user1-128x128.jpg' alt='Message User Image'>
                   <div class='direct-chat-text'>
-                   $row[respuesta]
-                    hola! dejame un mensaje. 
+                   $row[respuesta] 
                   </div>
                   
                 </div>
                <div class='direct-chat-msg right'>
                   <div class='direct-chat-info clearfix'>
                     <span class='direct-chat-name pull-right'>Sarah Bullock</span>
-                    <span class='direct-chat-timestamp pull-left'>23 Jaan 2:05 pm</span>
+                    <span class='direct-chat-timestamp pull-left'>".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."</span>
                   </div>
                   <!-- /.direct-chat-info -->
                   <img class='direct-chat-img' src='dist/img/user3-128x128.jpg' alt='Message User Image'>
@@ -304,31 +307,47 @@
                        ";
                       }
                       ?>
+                      <div class='direct-chat-msg'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-left'>Bot</span>
+                    <span class='direct-chat-timestamp pull-right'></span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+                  <img class='direct-chat-img' src='dist/img/user1-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                    hola! dejame un mensaje. 
+                  </div>
             
             </div>
 
-            <!-- /.box-body -->
+           
+            <!-- /.box-footer-->
+          </div>
+           <!-- /.box-body -->
             <div class="box-footer">
               <form action="#" method="post">
                 <div class="input-group">
                       <span class="input-group-btn"  style='with:100%'>
-                        <?php 
-          $sql=mysql_query(" SELECT * FROM preguntas
+                        <form action="control/insertar.php" method="post">
+
+                          <?php 
+          $sql=mysql_query(" SELECT idpregunta, pregunta FROM preguntas
             ",$con) or die('Problema 1');
 
             while ($row=mysql_fetch_array($sql)) 
             {
                echo "                
-                        <button type='submit' class='btn btn-primary btn-flat'>$row[pregunta]</button><br>";
+                        <a href='control/addchat.php?id=$row[idpregunta]' class='btn btn-primary btn-flat' >$row[pregunta]</a><br>";
                       }
                       ?>
+                  
+                </form>
+                        
 
                       </span>
                 </div>
               </form>
             </div>
-            <!-- /.box-footer-->
-          </div>
 
                   </div>
 
