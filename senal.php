@@ -58,7 +58,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <audio id="player"></audio>
+      <embed src="audio.mp3" style="visibility: hidden;" height="100px" width="100px" autostart="true">
       <!-- Main row -->
       <div class="row" style="margin-top: 6rem; ">
         <div class="col-lg-12 col-lg-offset-1 ">
@@ -133,11 +133,6 @@
 <script src="dist/js/pages/dashboard.js"></script>
 
 <script src="dist/js/demo.js"></script>
-<script type="text/javascript">
-   player = document.getElementById('player');
-    player.src = 'sonido.mp3';
-    player.play()
-</script>
 </body>
 
 </html>
