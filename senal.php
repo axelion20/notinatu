@@ -58,11 +58,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <audio id="audio" controls style="visibility: hidden;">
-      <source src="sonido.ogg" type="audio/ogg">
-      <source src="sonido.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-    </audio>
+      
       <!-- Main row -->
       <div class="row" style="margin-top: 6rem; ">
         <div class="col-lg-12 col-lg-offset-1 ">
@@ -138,7 +134,7 @@
 
 <script src="dist/js/demo.js"></script>
 <script type="text/javascript">
-   var audio = document.getElementById('audio');
+   var audio = new Audio('sonido.mp3');
    audio.play();
 </script>
 </body>
