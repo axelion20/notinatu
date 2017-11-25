@@ -1,7 +1,6 @@
-
-  <?php
-        include('control/conexion.php');
-            session_start();
+<?php
+      session_start();
+      include('control/conexion.php');      
                  if (isset($_SESSION['usuario'])) 
                  {
                   include('headeru.php');
