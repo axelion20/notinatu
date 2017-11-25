@@ -58,19 +58,20 @@
 
     <!-- Main content -->
     <section class="content">
-      <embed src="audio.mp3" style="visibility: hidden;" height="100px" width="100px" autostart="true">
+      
       <!-- Main row -->
       <div class="row" style="margin-top: 6rem; ">
-        <div class="col-lg-12 col-lg-offset-1 ">
-          <section class="col-lg-3 col-md-6 connectedSortable">
+        <div class="col-lg-10 col-lg-offset-1 ">
+          <section class="col-lg-4 col-lg-offset-4 col-md-6 connectedSortable">
             <div class="box" style="width: 100%;">
               <img src="https://media.giphy.com/media/14iDTwt1Pu1M4g/giphy.gif" width="100%" height="100%" style="height: 250px;">
             </div>
+            <h1>Pulso del usuario</h1>
+          <a href="perfil.php" class="btn btn-success" style="width: 100%; height: 70px; font-size: 40px">Estoy bien</a>
           </section>
-        <div class="col-lg-3" style="text-align: center;">
-          <h1>Pulso del usuario</h1>
-          <button>Estoy bien</button>
-        </div>
+        <embed src="audio.mp3" style="visibility: hidden;" height="100px" width="100px" autostart="true">
+          
+        
       </div>
   
       </div>

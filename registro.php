@@ -63,7 +63,7 @@
       <!-- Main row -->
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
-           <section class="col-lg-4 col-md-6 connectedSortable">
+           <section class="col-lg-3 col-md-6 connectedSortable">
             <div class="nav-tabs-custom">
             <div class="tab-content">
               <div class="tab-pane active" id="activity">
@@ -146,7 +146,7 @@
          
         </section>
 
-           <div class="col-lg-4">
+           <div class="col-lg-5">
             <div class="box box-solid">
               <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
             <form class="form-horizontal" action="control/insertar.php" method="post">

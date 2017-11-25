@@ -21,11 +21,38 @@
       <!-- Main row -->
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
-           <section class="col-lg-4 col-md-6 connectedSortable">
+           <section class="col-lg-3 col-md-6 connectedSortable">
+            <div class="box">
+         <?php
+        include('control/conexion.php');
+          
+                 if (isset($_SESSION['usuario'])) 
+                 {
+                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
+                      <button type='submit' class='btn-danger btn-block btn-flat' name='alertar' style='border: 0' >ALERTAR
+                      </button>
+                      
+                    </form>";
+                  }
+                  else{
+                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='1'>
+                      <button type='submit' class='btn-danger btn-block btn-flat' name='alertar' style='border: 0' >ALERTAR
+                      </button>
+                      
+                    </form>";
+                 }
+                 ?>
+            </div>
 
             <div class="nav-tabs-custom">
+
             <div class="tab-content">
+
               <div class="tab-pane active" id="activity">
+
+
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
@@ -106,8 +133,9 @@
         </section>
 
            <div class="col-lg-5">
-          
-          <?php 
+
+            <?php 
+          include('control/conexion.php');
           $sql=mysql_query("
             SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
             FROM content c 
@@ -122,7 +150,7 @@
                <div class='box box-widget'>
             <div class='box-header with-border'>
               <div class='user-block'>
-                <img class='img-circle' src='https://cdn.pixabay.com/photo/2017/07/18/23/23/user-2517433_960_720.png' alt='User Image'>
+               
                 <span class='username'><a href='#''>
                 $row[Name] $row[LastName]</a></span>
                 <span class='description'>Compartido 
@@ -131,34 +159,44 @@
                 a las ".substr($row['date'], 10,6)."
                 en Lima, Perú</span>
               </div>
+              <div class='box-body'>
+
+               <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
+
+               </div>
            
               <div class='box-tools'>
                 <button type='button' class='btn btn-box-tool' data-widget='collapse'><i class='fa fa-minus'></i>
                 </button>
+     
               </div>
            
             </div>
          
             <div class='box-body'>
-             <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
-              <p>$row[message]</p>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-share'></i> Share</button>
-              <button type='button' class='btn btn-default btn-xs'><i class='fa fa-thumbs-o-up'></i> Like</button>
-              <span class='pull-right text-muted'>127 likes - 3 comments</span>
+              <img style='width:100%' class='img-responsive pad' 
+              src='foto/$row[foto]'>
+              <p style='color:red; font-size:15px'>$row[message]</p>
+              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+              <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
       
             <div class='box-footer box-comments'>
               <div class='box-comment'>
+            
                 <img class='img-circle img-sm' src='dist/img/user3-128x128.jpg' alt='User Image'>
+
                 <div class='comment-text'>
                       <span class='username'>
                         Maria Gonzales
                         <span class='text-muted pull-right'>8:03 PM Today</span>
                       </span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
+                Es un hecho establecido desde hace tiempo que un lector se distraerá con el contenido legible de una página al mirar su diseño.
+
                 </div>
+
               </div>
+
             </div>
 
             <div class='box-footer'>
@@ -166,7 +204,7 @@
                 <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
    
                 <div class='img-push'>
-                  <input type='text' class='form-control input-sm' placeholder='Preciona enter para comentar...'>
+                  <input type='text' class='form-control input-sm' placeholder='Press enter to post comment'>
                 </div>
               </form>
             </div>
@@ -174,12 +212,14 @@
           </div>
                "
              ;}
-          ?>    
+          ?>
+          
+          
           <!-- /.nav-tabs-custom -->
         </div>
            
 
-        <div class="col-lg-3">
+        <div class="col-lg-4">
    
           <div class="info-box bg-blue" >
             <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
@@ -246,13 +286,12 @@
           </div>
           <div class="box box-primary direct-chat direct-chat-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Direct Chat</h3>
+              <h3 class="box-title">Chat bot</h3>
 
               <div class="box-tools pull-right">
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
-                
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+ 
               </div>
             </div>
             <!-- /.box-header -->
@@ -275,7 +314,7 @@
                echo "     
                <div class='direct-chat-msg'>
                   <div class='direct-chat-info clearfix'>
-                    <span class='direct-chat-name pull-left'>Alexander Pierce</span>
+                    <span class='direct-chat-name pull-left'>Bot</span>
                     <span class='direct-chat-timestamp pull-right'> ".substr($row['date'], 8,2)." 
                 del ".substr($row['date'], 5,2)." 
                 a las ".substr($row['date'], 10,6)."</span>
@@ -289,7 +328,7 @@
                 </div>
                <div class='direct-chat-msg right'>
                   <div class='direct-chat-info clearfix'>
-                    <span class='direct-chat-name pull-right'>Sarah Bullock</span>
+                    <span class='direct-chat-name pull-right'>Usuario</span>
                     <span class='direct-chat-timestamp pull-left'>".substr($row['date'], 8,2)." 
                 del ".substr($row['date'], 5,2)." 
                 a las ".substr($row['date'], 10,6)."</span>
@@ -324,11 +363,20 @@
             <!-- /.box-footer-->
           </div>
            <!-- /.box-body -->
-            <div class="box-footer">
-              <form action="#" method="post">
+            
+
+
+                  </div>
+                  <div class="box-footer">
+
                 <div class="input-group">
                       <span class="input-group-btn"  style='with:100%'>
                         <form action="control/insertar.php" method="post">
+                          <a  class="navbar-brand"><b>Preguntas</b></a>
+                    <ul class="nav navbar-nav">
+                    <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> <span class="caret"></span>preguntas</a>
+              <ul class="dropdown-menu" role="menu">
 
                           <?php 
           $sql=mysql_query(" SELECT idpregunta, pregunta FROM preguntas
@@ -336,20 +384,26 @@
 
             while ($row=mysql_fetch_array($sql)) 
             {
-               echo "                
-                        <a href='control/addchat.php?id=$row[idpregunta]' class='btn btn-primary btn-flat' >$row[pregunta]</a><br>";
+               echo "   
+                     <li><a href='control/addchat.php?id=$row[idpregunta]' class='btn btn-danger' style='width: 100%; color:black' >$row[pregunta]</a></li>
+                  ";
                       }
                       ?>
-                  
                 </form>
-                        
+                 </ul>
+            </li>
+
+          </ul> 
+                       <a href='control/truncatechat.php' class='btn btn-primary' >LIMPIAR CHAT</a> 
 
                       </span>
                 </div>
-              </form>
             </div>
+                  
 
-                  </div>
+               
+
+             
 
       </div>
   
