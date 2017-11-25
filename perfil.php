@@ -59,13 +59,10 @@
         <div class="col-lg-10 col-lg-offset-1 ">
         <section class="col-lg-3 connectedSortable">
           <div class="box">
-          <form action='control/insertar.php' method='post'>
-                        <input type='hidden' name='usuario' name='usuario' 
-                         value='<?php echo $_SESSION['id']?>'>
-                      <button  type='submit' class='btn-danger btn-block btn-flat' name='alertar' style="border: 0">ALERTAR
+          <a href="senal.php">
+                        <button style='border: 0px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
                       </button>
-                      
-                    </form>
+                      </a>
             </div>
           <div class="box box-info">
             <div class="box-header">
@@ -163,7 +160,7 @@
               <div class='user-block'>
                
                 <span class='username'><a href='#''>
-                $row[Name] $row[LastName]</a></span>
+                $row[Name] $row[LastName] $row[message]</a></span>
                 <span class='description'>Compartido 
                 el ".substr($row['date'], 8,2)." 
                 del ".substr($row['date'], 5,2)." 
@@ -352,7 +349,6 @@
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <?php 
-                    include('control/conexion.php');
                     $sql=mysql_query("
                       SELECT f.idfriend,u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
                       FROM friend f

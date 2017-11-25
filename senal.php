@@ -67,7 +67,51 @@
               <img src="https://media.giphy.com/media/14iDTwt1Pu1M4g/giphy.gif" width="100%" height="100%" style="height: 250px;">
             </div>
             <h1>Pulso del usuario</h1>
-          <a href="perfil.php" class="btn btn-success" style="width: 100%; height: 70px; font-size: 40px">Estoy bien</a>
+            <?php
+        include('control/conexion.php');
+          
+                 if (isset($_SESSION['usuario'])) 
+                 {
+                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
+                      <button class='btn btn-danger' style='width: 100%; height: 70px; font-size: 40px; margin-bottom:5px' name='alertar' >En riesgo!
+                      </button>
+                      
+                    </form>";
+                  }
+                  else{
+                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='1'>
+                      <button class='btn btn-danger' style='width: 100%; height: 70px; font-size: 40px; margin-bottom:5px' name='alertar' >En riesgo!
+                      </button>
+                      
+                    </form>";
+                 }
+                 ?>
+
+                 <?php
+        include('control/conexion.php');
+          
+                 if (isset($_SESSION['usuario'])) 
+                 {
+                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
+                      <button class='btn btn-success' style='width: 100%; height: 70px; font-size: 40px;' name='notificar' >Estoy bien
+                      </button>
+                      
+                    </form>";
+                  }
+                  else{
+                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
+                        <input type='hidden' name='usuario' name='usuario' value='2'>
+                      <button class='btn btn-success' style='width: 100%; height: 70px; font-size: 40px;' name='notificar' >Estoy bien
+                      </button>
+                      
+                    </form>";
+                 }
+                 ?>
+
+
           </section>
         <embed src="audio.mp3" style="visibility: hidden;" height="100px" width="100px" autostart="true">
           

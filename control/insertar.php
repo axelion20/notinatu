@@ -50,11 +50,27 @@
  
     mysql_query("INSERT INTO `content` 
     (`iduser`, `message`, `date`) 
-    VALUES ( $usuario, 'Alerta: Auxilienme porfavor.', now())");
+    VALUES ( $usuario, 'en riesgo.', now())");
 
    echo "<script> 
                 alert('Alerta enviada!');
-                location.href='../senal.php';
+                location.href='../perfil.php';
+        </script>";
+        
+    }
+
+    if (isset($_POST['notificar'])) 
+    {
+ 
+     echo $usuario=$_POST['usuario'];
+ 
+    mysql_query("INSERT INTO `content` 
+    (`iduser`, `message`, `date`) 
+    VALUES ( $usuario, 'a notificado.', now())");
+
+   echo "<script> 
+                alert('Alerta enviada!');
+                location.href='../perfil.php';
         </script>";
         
     }

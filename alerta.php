@@ -73,28 +73,11 @@
                   <div class="form-group">
 
                     <div class=" col-sm-12">
-                      <?php
-        include('control/conexion.php');
-          
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
-                        <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
-                      <button style='width: 200px;display:inline-block; height: 200px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
+                      <a href="senal.php">
+                        <button style='width: 100%;display:inline-block; height: 230px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
                       </button>
-                      
-                    </form>";
-                  }
-                  else{
-                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
-                        <input type='hidden' name='usuario' name='usuario' value='1'>
-                      <button style='width: 200px;display:inline-block; height: 200px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
-                      </button>
-                      
-                    </form>";
-                 }
-                 ?>
-                      
+                      </a>
+                        
 
                     </div>
                   </div>  

@@ -22,28 +22,11 @@
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 ">
            <section class="col-lg-3 col-md-6 connectedSortable">
-            <div class="box">
-         <?php
-        include('control/conexion.php');
-          
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
-                        <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
-                      <button type='submit' class='btn-danger btn-block btn-flat' name='alertar' style='border: 0' >ALERTAR
+            <div class="box" >
+        <a href="senal.php">
+                        <button style='border: 0px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
                       </button>
-                      
-                    </form>";
-                  }
-                  else{
-                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
-                        <input type='hidden' name='usuario' name='usuario' value='1'>
-                      <button type='submit' class='btn-danger btn-block btn-flat' name='alertar' style='border: 0' >ALERTAR
-                      </button>
-                      
-                    </form>";
-                 }
-                 ?>
+                      </a>
             </div>
 
             <div class="nav-tabs-custom">
@@ -64,28 +47,14 @@
                   </div>
                   <!-- /.user-block -->
                   <div class="row margin-bottom">
-                    <div class="col-sm-5">
-                      <img class="img-responsive" src="https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/03/21/58d1d581c901b.jpeg" alt="Photo">
+                    <div class="col-lg-6">
+                      <img class="img-responsive" src="http://derechoshumanos.pe/wp-content/uploads/2017/03/huaycoloro-RPP.jpg" alt="Photo">
+                    </div>
+                    <div class="col-lg-6">
+                      <img class="img-responsive" src="http://portal.andina.pe/EDPfotografia2/Thumbnail/2012/04/07/000179881W.jpg" alt="Photo">
                     </div>
                     <!-- /.col -->
-                    <div class="col-sm-6">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <img class="img-responsive" src="https://img.elcomercio.pe/files/article_content_ec_fotos/uploads/2017/03/21/58d1cfc2397c2.jpeg" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="https://cde.peru.com//ima/0/1/5/9/0/1590748/611x458/peru.jpg" alt="Photo">
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-5">
-                          <img class="img-responsive" src="http://derechoshumanos.pe/wp-content/uploads/2017/03/huaycoloro-RPP.jpg" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="http://portal.andina.pe/EDPfotografia2/Thumbnail/2012/04/07/000179881W.jpg" alt="Photo">
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-                    </div>
-                    <!-- /.col -->
+          
                   </div>
                   <!-- /.row -->
 
@@ -108,10 +77,9 @@
                 <div class='comment-text'>
                       <span class='username'>
                         Maria Gonzales
-                        <span class='text-muted pull-right'>8:03 PM Today</span>
+                        <span class='text-muted pull-right'>9:30 PM Hoy</span>
                       </span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
+                  Me parece muy buena la app, es muy útil en momentos de desastres naturales.
                 </div>
               </div>
             </div>
@@ -161,7 +129,7 @@
               </div>
               <div class='box-body'>
 
-               <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
+               <iframe src='https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d124790.68103031644!2d-76.97005560000004!3d-12.200207899999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x9105b99988ad70ed%3A0x5be593f92f94942e!2s1S%2C+Cercado+de+Lima+15842!3m2!1d-12.200027799999999!2d-76.9736827!5e0!3m2!1ses!2spe!4v1511611167951' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
 
                </div>
            
@@ -177,7 +145,7 @@
               <img style='width:100%' class='img-responsive pad' 
               src='foto/$row[foto]'>
               <p style='color:red; font-size:15px'>$row[message]</p>
-              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='25' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
               <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
       
