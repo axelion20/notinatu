@@ -89,9 +89,9 @@
                     </form>";
                   }
                   else{
-                   echo "<form action='control/insertar.php' method='post'>
+                   echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
                         <input type='hidden' name='usuario' name='usuario' value='1'>
-                      <button style='width: 90%; height: 350px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
+                      <button style='width: 200px;display:inline-block; height: 200px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
                       </button>
                       
                     </form>";
