@@ -54,7 +54,7 @@
 
    echo "<script> 
                 alert('Alerta enviada!');
-        location.href='../perfil.php';
+                location.href='../senal.php';
         </script>";
         
     }
