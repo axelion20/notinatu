@@ -1,6 +1,7 @@
-<?php
-      session_start();
-      include('control/conexion.php');      
+
+  <?php
+        include('control/conexion.php');
+            session_start();
                  if (isset($_SESSION['usuario'])) 
                  {
                   include('headeru.php');
@@ -107,7 +108,6 @@
            <div class="col-lg-5">
           
           <?php 
-          include('control/conexion.php');
           $sql=mysql_query("
             SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
             FROM content c 
@@ -262,66 +262,67 @@
               <!-- Conversations are loaded here -->
               <div class="direct-chat-messages">
                 <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Alexander Pierce</span>
-                    <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                
+                <?php 
+          $sql=mysql_query(" SELECT p.pregunta, r.respuesta 
+                            FROM chat c
+                            join preguntas p on p.idpregunta=c.idpregunta
+                            join respuesta r on r.idrespuesta=c.idrespuesta
+            ",$con) or die('Problema 1');
+
+            while ($row=mysql_fetch_array($sql)) 
+            {   
+               echo "     
+               <div class='direct-chat-msg'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-left'>Alexander Pierce</span>
+                    <span class='direct-chat-timestamp pull-right'>23 Jan 2:00 pm</span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
+                  <img class='direct-chat-img' src='dist/img/user1-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                   $row[respuesta]
                     hola! dejame un mensaje. 
                   </div>
-                  <!-- /.direct-chat-text -->
+                  
                 </div>
-                <!-- /.direct-chat-msg -->
-
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-right">Sarah Bullock</span>
-                    <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+               <div class='direct-chat-msg right'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-right'>Sarah Bullock</span>
+                    <span class='direct-chat-timestamp pull-left'>23 Jaan 2:05 pm</span>
                   </div>
                   <!-- /.direct-chat-info -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="Message User Image"><!-- /.direct-chat-img -->
-                  <div class="direct-chat-text">
-                    You better believe it!
+                  <img class='direct-chat-img' src='dist/img/user3-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                    $row[pregunta]
                   </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+                
+            
+                
               </div>
-              <!--/.direct-chat-messages-->
-
-              <!-- Contacts are loaded here -->
-              <div class="direct-chat-contacts">
-                <ul class="contacts-list">
-                  <li>
-                    <a href="#">
-                      <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Image">
-
-                      <div class="contacts-list-info">
-                            <span class="contacts-list-name">
-                              Count Dracula
-                              <small class="contacts-list-date pull-right">2/28/2015</small>
-                            </span>
-                        <span class="contacts-list-msg">How have you been? I was...</span>
-                      </div>
-                      <!-- /.contacts-list-info -->
-                    </a>
-                  </li>
-                  <!-- End Contact Item -->
-                </ul>
-                <!-- /.contatcts-list -->
-              </div>
-              <!-- /.direct-chat-pane -->
+         
+                       ";
+                      }
+                      ?>
+            
             </div>
+
             <!-- /.box-body -->
             <div class="box-footer">
               <form action="#" method="post">
                 <div class="input-group">
-                      <span class="input-group-btn">
-                        <button type="submit" class="btn btn-primary btn-flat">ayuda</button>
+                      <span class="input-group-btn"  style='with:100%'>
+                        <?php 
+          $sql=mysql_query(" SELECT * FROM preguntas
+            ",$con) or die('Problema 1');
+
+            while ($row=mysql_fetch_array($sql)) 
+            {
+               echo "                
+                        <button type='submit' class='btn btn-primary btn-flat'>$row[pregunta]</button><br>";
+                      }
+                      ?>
+
                       </span>
                 </div>
               </form>
