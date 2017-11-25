@@ -1,5 +1,4 @@
 <?php
-  
   include('control/conexion.php');
   session_start();
    // if (isset($_SESSION['usuario'])) 
