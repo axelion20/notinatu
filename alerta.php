@@ -1,3 +1,14 @@
+<?php
+  include('control/conexion.php');
+  session_start();
+   // if (isset($_SESSION['usuario'])) 
+   // {
+   //  include('headeru.php');
+   //  }
+   //  else{
+   //   include('header.php');
+   // }
+   ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -41,20 +52,6 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
-  <?php
-        include('control/conexion.php');
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  include('headeru.php');
-                  }
-                  else{
-                   include('header.php');
-                 }
-                 ?>
-
-
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin: 0">
     <!-- Content Header (Page header) -->
@@ -64,36 +61,29 @@
 
       <!-- Main row -->
       <div class="row">
-        <div class="col-lg-10 col-lg-offset-1 ">
-           <section class="col-lg-3 col-md-6 connectedSortable">
-
-            
-        </section>
+        <div class="col-lg-12 col-lg-offset-1 ">
+          <section class="col-lg-3 col-md-6 connectedSortable">
+            <div class="box" style="width: 100%;">
+              <img src="http://www.eindhovenstartups.com/wp-content/uploads/2016/08/blank_male_avatar.jpg" width="100%" height="100%">
+            </div>
+          </section>
 
            <div class="col-lg-6">
           
         <div class="box box-solid">
               <div class="box-header with-border ui-sortable-handle" style="cursor: move;">
-           
-              <div class="user-block center">
-                    
-                        <span class="username">
-                          INFORMAR ALERTA
-                        </span>
-                  </div>
-                  
-    
+        
                   <div class="form-group">
 
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-2 col-sm-12">
                       <?php
         include('control/conexion.php');
           
                  if (isset($_SESSION['usuario'])) 
                  {
-                  echo "<form action='control/insertar.php' method='post'>
+                  echo "<form action='control/insertar.php' method='post' style='text-align:center;'>
                         <input type='hidden' name='usuario' name='usuario' value='$_SESSION[id]'>
-                      <button style='width: 90%; height: 350px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
+                      <button style='width: 200px;display:inline-block; height: 200px; border-radius: 50%; border: 3px solid black; font-size: 40px' type='submit' class='btn-danger btn-block btn-flat' name='alertar' >ALERTAR
                       </button>
                       
                     </form>";
