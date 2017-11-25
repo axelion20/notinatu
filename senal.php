@@ -58,7 +58,7 @@
 
     <!-- Main content -->
     <section class="content">
-      <audio controls style="visibility: hidden;" autoplay="true">
+      <audio id="audio" controls style="visibility: hidden;">
       <source src="sonido.ogg" type="audio/ogg">
       <source src="sonido.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -73,11 +73,7 @@
           </section>
         <div class="col-lg-3" style="text-align: center;">
           <h1>Pulso del usuario</h1>
-          <button style="background: silver;
-    border-radius: 5px;
-    width: 115px;
-    height: 42px;
-    font-size: 2rem;">Estoy bien</button>
+          <button>Estoy bien</button>
         </div>
       </div>
   
@@ -141,6 +137,10 @@
 <script src="dist/js/pages/dashboard.js"></script>
 
 <script src="dist/js/demo.js"></script>
+<script type="text/javascript">
+   var audio = document.getElementById('audio');
+   audio.play();
+</script>
 </body>
 
 </html>
