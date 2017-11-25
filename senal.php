@@ -58,7 +58,7 @@
 
     <!-- Main content -->
     <section class="content">
-      
+      <audio id="player"></audio>
       <!-- Main row -->
       <div class="row" style="margin-top: 6rem; ">
         <div class="col-lg-12 col-lg-offset-1 ">
@@ -134,8 +134,9 @@
 
 <script src="dist/js/demo.js"></script>
 <script type="text/javascript">
-   var audio = new Audio('sonido.mp3');
-   audio.play();
+   player = document.getElementById('player');
+    player.src = 'sonido.mp3';
+    player.play()
 </script>
 </body>
 
