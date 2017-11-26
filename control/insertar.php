@@ -49,8 +49,8 @@
      echo $usuario=$_POST['usuario'];
  
     mysql_query("INSERT INTO `content` 
-    (`iduser`, `message`, `date`) 
-    VALUES ( $usuario, 'en riesgo.', now())");
+    (`iduser`, `message`, `message2`, `date`) 
+    VALUES ( $usuario, 'en riesgo.', 'Estoy en riesgo!', now())");
 
    echo "<script> 
                 alert('Alerta enviada!');
@@ -65,8 +65,8 @@
      echo $usuario=$_POST['usuario'];
  
     mysql_query("INSERT INTO `content` 
-    (`iduser`, `message`, `date`) 
-    VALUES ( $usuario, 'a notificado.', now())");
+    (`iduser`, `message`, `message2`, `date`) 
+    VALUES ( $usuario, 'a notificado.', 'Estoy bien.', now())");
 
    echo "<script> 
                 alert('Alerta enviada!');

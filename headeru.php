@@ -38,7 +38,7 @@
       <div class="container">
         <div class="navbar-header" style="margin-top: -10px">
           <a href="#" class="navbar-brand">
-            <img width="40px" class="img-circle " src="https://icon-icons.com/icons2/1310/PNG/512/recycling_86328.png" alt="User Image">
+            <img width="40px" class="img-circle " src="dist/img/logo.png" alt="User Image">
           </a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>

@@ -6,6 +6,6 @@
         VALUES ($id,$id, now())");
         echo "<script> 
                 alert('Mensaje enviado!');
-        location.href='../index.php';
+        location.href='../perfil.php';
         </script>";
        ?>

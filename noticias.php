@@ -116,9 +116,9 @@
                 <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
 
                 <div class="timeline-body">
-                  Take me to your leader!
-                  Switzerland is small and neutral!
-                  We are more like Germany, ambitious and misunderstood!
+                  ¡Llévame hasta tu líder! Suiza es pequeña y neutral! ¡Somos más como Alemania, ambiciosos e incomprendidos!
+Ver comentario
+
                 </div>
                 <div class="timeline-footer">
                   <a class="btn btn-warning btn-flat btn-xs">View comment</a>

@@ -1,15 +1,14 @@
-
-  <?php
-        include('control/conexion.php');
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  include('headeru.php');
-                  }
-                  else{
-                   include('header.php');
-                 }
-                 ?>
+<?php
+  include('control/conexion.php');
+  session_start();
+   if (isset($_SESSION['usuario'])) 
+   {
+    include('headeru.php');
+    }
+    else{
+     include('header.php');
+   }
+?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin: 0">
@@ -39,7 +38,7 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="https://icon-icons.com/icons2/1310/PNG/512/recycling_86328.png" alt="User Image">
+                    <img class="img-circle img-bordered-sm" src="dist/img/logo.png"" alt="User Image">
                         <span class="username">
                           <a href="#">NATUAPP</a>
                         </span>
@@ -85,7 +84,7 @@
             </div>
             <div class="box-footer">
               <form action="#" method="post">
-                <img class="img-responsive img-circle img-sm" src="dist/img/user4-128x128.jpg" alt="Alt Text">
+                <img class="img-responsive img-circle img-sm" src="dist/img/logo.jpg" alt="Alt Text">
    
                 <div class="img-push">
                   <input type="text" class="form-control input-sm" placeholder="Preciona enter para comentar...">
@@ -105,10 +104,9 @@
             <?php 
           include('control/conexion.php');
           $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
+            SELECT 'c.idcontent','u.Name', 'u.LastName', 'c.message', 'c.message2', 'c.foto', 'c.date'
             FROM content c 
-            join user u on u.IdUser=c.iduser
-            order by c.idcontent desc
+            order by 'c.idcontent' desc
             limit 5
             ",$con) or die('Problema 1');
 
@@ -120,7 +118,7 @@
               <div class='user-block'>
                
                 <span class='username'><a href='#''>
-                $row[Name] $row[LastName]</a></span>
+                $row[Name] $row[LastName] $row[message]</a></span>
                 <span class='description'>Compartido 
                 el ".substr($row['date'], 8,2)." 
                 del ".substr($row['date'], 5,2)." 
@@ -143,9 +141,15 @@
          
             <div class='box-body'>
               <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]'>
-              <p style='color:red; font-size:15px'>$row[message]</p>
-              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='25' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+              src='foto/$row[foto]'>";
+              if ($row['message2']=='Estoy bien.') {
+               echo "<p style='color:#01DF01; font-size:15px'>".$row['message2']."</p>";
+                }
+                else{
+                  echo "<p style='color:red; font-size:15px'>".$row['message2']."</p>";
+                }
+
+                           echo "<iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='25' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
               <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
       
@@ -169,7 +173,7 @@
 
             <div class='box-footer'>
               <form action='#' method='post'>
-                <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
+                <img class='img-responsive img-circle img-sm' src='dist/img/logo.png' alt='Alt Text'>
    
                 <div class='img-push'>
                   <input type='text' class='form-control input-sm' placeholder='Press enter to post comment'>
@@ -252,6 +256,7 @@
             </div>
             <!-- /.box-body -->
           </div>
+
           <div class="box box-primary direct-chat direct-chat-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Chat bot</h3>
@@ -270,11 +275,11 @@
                 
                 
                 <?php 
-          $sql=mysql_query(" SELECT c.idchat,p.pregunta, r.respuesta, c.date
+          $sql=mysql_query(" SELECT 'c.idchat','p.pregunta', 'r.respuesta', 'c.date'
                             FROM chat c
-                            join preguntas p on p.idpregunta=c.idpregunta
-                            join respuesta r on r.idrespuesta=c.idrespuesta
-                            order by c.idchat desc
+                            join preguntas p on 'p.idpregunta'='c.idpregunta'
+                            join respuesta r on 'r.idrespuesta'='c.idrespuesta'
+                            order by 'c.idchat' desc
             ",$con) or die('Problema 1');
 
             while ($row=mysql_fetch_array($sql)) 

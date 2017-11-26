@@ -1,14 +1,14 @@
+<?php
+  session_start();
+   if (isset($_SESSION['usuario'])) 
+   {
+    header("Location: inicio.php");
+    }
+    else{
+   }
+ ?>
 <!DOCTYPE html>
 <html>
-<?php
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  header("Location: inicio.php");
-                  }
-                  else{
-                 }
-                 ?>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
 <meta charset="utf-8">

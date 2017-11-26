@@ -113,7 +113,11 @@
 
 
           </section>
-        <embed src="audio.mp3" style="visibility: hidden;" height="100px" width="100px" autostart="true">
+      <audio controls autoplay style="visibility: hidden;">
+  <source src="sonido.ogg" type="audio/ogg">
+  <source src="sonido.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
           
         
       </div>

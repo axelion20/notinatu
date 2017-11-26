@@ -1,3 +1,14 @@
+<?php
+  include('control/conexion.php');
+  session_start();
+ if (isset($_SESSION['usuario'])) 
+ {
+  header("Location: /notinatu/perfil.php");
+  }
+  else{
+   include('header.php');
+ }
+ ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
@@ -40,18 +51,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-  <?php
-        include('control/conexion.php');
-            session_start();
-                 if (isset($_SESSION['usuario'])) 
-                 {
-                  header("Location: /notinatu/perfil.php");
-                  }
-                  else{
-                   include('header.php');
-                 }
-                 ?>
+<div class="wrapper">  
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" style="margin: 0">

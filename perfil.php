@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include('control/conexion.php');
    if (isset($_SESSION['usuario'])) 
    {
     
@@ -143,13 +144,11 @@
 
         <section class="col-lg-5 col-md-6 connectedSortable ui-sortable">
           <?php 
-          include('control/conexion.php');
           $sql=mysql_query("
-            SELECT c.idcontent,u.Name, u.LastName, c.message, c.foto, c.date
+            SELECT 'c.idcontent','u.Name', 'u.LastName', 'c.message', 'c.message2', 'c.foto', 'c.date'
             FROM content c 
-            join user u on u.IdUser=c.iduser
-            WHERE u.Name='$_SESSION[usuario]'
-            order by c.idcontent desc
+            join user u on 'u.IdUser'='c.iduser'            
+            order by 'c.idcontent' desc
             ",$con) or die('Problema 1');
 
             while ($row=mysql_fetch_array($sql)) 
@@ -169,7 +168,7 @@
               </div>
               <div class='box-body'>
 
-               <iframe src='https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2252.7739294017865!2d-76.97069698353549!3d-12.199692114978891!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2spe!4v1511589447670' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
+               <iframe src='https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d124790.68103031644!2d-76.97005560000004!3d-12.200207899999988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x9105b99988ad70ed%3A0x5be593f92f94942e!2s1S%2C+Cercado+de+Lima+15842!3m2!1d-12.200027799999999!2d-76.9736827!5e0!3m2!1ses!2spe!4v1511611167951' width='100%' height='250' frameborder='0' style='border:0' allowfullscreen></iframe>
 
                </div>
            
@@ -185,16 +184,23 @@
          
             <div class='box-body'>
               <img style='width:100%' class='img-responsive pad' 
-              src='foto/$row[foto]'>
-              <p style='color:red; font-size:15px'>$row[message]</p>
-              <iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='65' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
+              src='foto/$row[foto]'>";
+              if ($row['message2']=='Estoy bien.') {
+               echo "<p style='color:#01DF01; font-size:15px'>".$row['message2']."</p>";
+                }
+                else{
+                  echo "<p style='color:red; font-size:15px'>".$row['message2']."</p>";
+                }
+              
+             
+              echo "<iframe src='https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&width=143&layout=button&action=like&size=small&show_faces=true&share=true&height=65&appId=2054569914762518' width='143' height='25' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>
               <span class='pull-right text-muted'>127 Me gusta - 3 comments</span>
             </div>
       
             <div class='box-footer box-comments'>
               <div class='box-comment'>
             
-                <img class='img-circle img-sm' src='dist/img/user3-128x128.jpg' alt='User Image'>
+                <img class='img-circle img-sm' src='dist/img/logo.png' alt='User Image'>
 
                 <div class='comment-text'>
                       <span class='username'>
@@ -211,7 +217,7 @@
 
             <div class='box-footer'>
               <form action='#' method='post'>
-                <img class='img-responsive img-circle img-sm' src='dist/img/user4-128x128.jpg' alt='Alt Text'>
+                <img class='img-responsive img-circle img-sm' src='dist/img/logo.png' alt='Alt Text'>
    
                 <div class='img-push'>
                   <input type='text' class='form-control input-sm' placeholder='Press enter to post comment'>
@@ -277,7 +283,6 @@
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <?php 
-          include('control/conexion.php');
           $sql=mysql_query("
             SELECT IdUser, Name, LastName FROM user
             WHERE idcity='1'
@@ -350,10 +355,10 @@
                   <ul class="users-list clearfix">
                     <?php 
                     $sql=mysql_query("
-                      SELECT f.idfriend,u.IdUser, u.Name, u.LastName, f.iduser1,f.iduser2 
+                      SELECT 'f.idfriend','u.IdUser', 'u.Name', 'u.LastName', 'f.iduser1','f.iduser2' 
                       FROM friend f
-                      JOIN user u on u.IdUser=f.iduser2
-                      WHERE f.iduser1=$_SESSION[id]
+                      JOIN user u on 'u.IdUser'='f.iduser2'
+                      
                       order by IdUser desc
                       ",$con) or die('Problema 1');
 
@@ -382,6 +387,122 @@
                 </div>
                 <!-- /.box-footer -->
               </div>
+
+              <div class="box box-primary direct-chat direct-chat-primary">
+            <div class="box-header with-border">
+              <h3 class="box-title">Chat bot</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+ 
+              </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <!-- Conversations are loaded here -->
+              <div class="direct-chat-messages">
+                <!-- Message. Default to the left -->
+                
+                
+                <?php 
+          $sql=mysql_query(" SELECT 'c.idchat','p.pregunta', 'r.respuesta', 'c.date'
+                            FROM chat c
+                            join preguntas p on 'p.idpregunta'='c.idpregunta'
+                            join respuesta r on 'r.idrespuesta'='c.idrespuesta'
+                            order by 'c.idchat' desc
+            ",$con) or die('Problema 1');
+
+            while ($row=mysql_fetch_array($sql)) 
+            {   
+               echo "     
+               <div class='direct-chat-msg'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-left'>Bot</span>
+                    <span class='direct-chat-timestamp pull-right'> ".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."</span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+                  <img class='direct-chat-img' src='dist/img/user1-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                   $row[respuesta] 
+                  </div>
+                  
+                </div>
+               <div class='direct-chat-msg right'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-right'>Usuario</span>
+                    <span class='direct-chat-timestamp pull-left'>".substr($row['date'], 8,2)." 
+                del ".substr($row['date'], 5,2)." 
+                a las ".substr($row['date'], 10,6)."</span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+                  <img class='direct-chat-img' src='dist/img/user3-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                    $row[pregunta]
+                  </div>
+                
+            
+                
+              </div>
+         
+                       ";
+                      }
+                      ?>
+                      <div class='direct-chat-msg'>
+                  <div class='direct-chat-info clearfix'>
+                    <span class='direct-chat-name pull-left'>Bot</span>
+                    <span class='direct-chat-timestamp pull-right'></span>
+                  </div>
+                  <!-- /.direct-chat-info -->
+                  <img class='direct-chat-img' src='dist/img/user1-128x128.jpg' alt='Message User Image'>
+                  <div class='direct-chat-text'>
+                    hola! dejame un mensaje. 
+                  </div>
+            
+            </div>
+
+           
+            <!-- /.box-footer-->
+          </div>
+           <!-- /.box-body -->
+            
+
+
+                  </div>
+                  <div class="box-footer">
+
+                <div class="input-group">
+                      <span class="input-group-btn"  style='with:100%'>
+                        <form action="control/insertar.php" method="post">
+                          <a  class="navbar-brand"><b>Preguntas</b></a>
+                    <ul class="nav navbar-nav">
+                    <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"> <span class="caret"></span>preguntas</a>
+              <ul class="dropdown-menu" role="menu">
+
+                          <?php 
+          $sql=mysql_query(" SELECT idpregunta, pregunta FROM preguntas
+            ",$con) or die('Problema 1');
+
+            while ($row=mysql_fetch_array($sql)) 
+            {
+               echo "   
+                     <li><a href='control/addchat.php?id=$row[idpregunta]' class='btn btn-danger' style='width: 100%; color:black' >$row[pregunta]</a></li>
+                  ";
+                      }
+                      ?>
+                </form>
+                 </ul>
+            </li>
+
+          </ul> 
+                       <a href='control/truncatechat.php' class='btn btn-primary' >LIMPIAR CHAT</a> 
+
+                      </span>
+                </div>
+            </div>
 
 
         </section>
